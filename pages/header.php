@@ -19,6 +19,7 @@
     <link href="/vendor/blackrock-digital/css/sb-admin-2.css?=v8" rel="stylesheet">
     <link href="/vendor/morrisjs/morris.css" rel="stylesheet">
     <link href="/vendor/font-awesome/css/font-awesome.min.css?=v1" rel="stylesheet" type="text/css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -27,7 +28,9 @@
 <?php
 ob_start();
 date_default_timezone_set('America/Chicago');
-include_once ($_SERVER['DOCUMENT_ROOT'].'/connections 
+include_once ($_SERVER['DOCUMENT_ROOT'].'/connections/db_connect8.php');
+include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');
+session_start();?>
 </head>
 <body>
     <div id="wrapper">

@@ -28,16 +28,16 @@
 				        	//display column headers
 				            echo "<thead>";
 					        	echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Theater</th>";
-	        					echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Next Movie</th>";
+	        					echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Movie</th>";
 	            				echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Remaining Time</th></tr>";
 				            echo "</thead>";
 
 				            //display the data
-				            /*echo "<tbody>";
+				            echo "<tbody>";
 				            	while($row = mysqli_fetch_array($result)){
 				                  	echo "<tr>";
 				                  	
-				                  	//Product
+				                  	//Theater ID
 				                  	echo "<td align='center'>" . $row['description'] . "</td>";
 
 				                  	//Cost
@@ -47,7 +47,7 @@
 				                  	echo "<td align='center'><img src=\"/images/" . $row['product_image'] . "\" alt=\"" . $row['description'] . "\" style=\"width:50px;height:50px\"></td>";
 				                  	
 				                  	echo "</tr>";
-				                  }*/
+				            	}
 			                  ?>   
 			            </tbody>
 					</table>
@@ -58,7 +58,7 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-ticket fa-fw"></i> Theaters
+                    <i class="fas fa-ticket-alt fa-fw"></i> Theaters
                 </div>
                 <div class="panel-body">
 					<table id="history" class="table table-striped table-bordered"><?php
@@ -68,8 +68,8 @@
 				
 				        //display column headers
 				        echo "<thead>";
-					      	echo "<th style='text-align:center' width=\"" . 2*(100/(mysqli_num_fields($result)+2)) . "%\">Name</th>";
-	            			echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Customer ID</th></tr>";
+					      	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Number</th>";
+	            			echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Status</th></tr>";
 				        echo "</thead>";
 
 				        //display the data
