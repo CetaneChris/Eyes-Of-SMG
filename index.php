@@ -17,7 +17,7 @@
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-ticket fa-fw"></i> Theaters
+                    <i class="fa fa-users fa-fw"></i> Occupancy
                 </div>
                 <div class="panel-body">
                     <table id="products" class="table table-striped table-bordered"><?php
@@ -58,7 +58,7 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-child fa-fw"></i> Customers
+                    <i class="fa fa-ticket fa-fw"></i> Theaters
                 </div>
                 <div class="panel-body">
 					<table id="history" class="table table-striped table-bordered"><?php
