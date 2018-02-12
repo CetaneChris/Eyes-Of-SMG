@@ -27,8 +27,7 @@
 <?php
 ob_start();
 date_default_timezone_set('America/Chicago');
-include_once ($_SERVER['DOCUMENT_ROOT'].'/connections/db_connect8.php');
-session_start();?>
+include_once ($_SERVER['DOCUMENT_ROOT'].'/connections 
 </head>
 <body>
     <div id="wrapper">
@@ -54,13 +53,7 @@ session_start();?>
                             <a href="/index.php"><i class="fa fa-building fa-fw"></i> Home</a>
                         </li>
                         <li>
-                            <a href="/pages/products.php"><i class="fa fa-shopping-cart fa-fw"></i> Products</a>
-                        </li>
-                        <li>
-                            <a href="/pages/customer.php"><i class="fa fa-users fa-fw"></i> Customers</a>
-                        </li>
-                        <li>
-                            <a href="/pages/orders.php"><i class="fa fa-search fa-fw"></i> Orders</a>
+                            <a href="/pages/reporting.php"><i class="fas fa-chart-line fa-fw"></i> Reporting</a>
                         </li>
                     </ul>
                 </div>
