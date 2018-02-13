@@ -1,7 +1,5 @@
 <!-- 
-	Christopher Raymond & Laramie DeBaun	
-	Databases 2017 fall
-	Homepage
+	Home page
  -->
 <?php include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php'); ?>
 <title>Eyes of SMG Home</title>
@@ -16,6 +14,7 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="panel panel-default">
+            <!-- Defines left table, filled with theater number, status, and current movie -->
                 <div class="panel-heading">
                     <i class="fa fa-users fa-fw"></i> Occupancy
                 </div>
@@ -58,7 +57,8 @@
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fas fa-ticket-alt fa-fw"></i> Theaters
+                <!-- Defining table on the right, will have a key between dot color and meaning -->
+                    <i class="fas fa-ticket-alt fa-fw"></i> Key
                 </div>
                 <div class="panel-body">
 					<table id="history" class="table table-striped table-bordered"><?php
@@ -68,7 +68,7 @@
 				
 				        //display column headers
 				        echo "<thead>";
-					      	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Number</th>";
+					      	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Symbol</th>";
 	            			echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Status</th></tr>";
 				        echo "</thead>";
 

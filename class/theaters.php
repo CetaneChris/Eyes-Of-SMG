@@ -1,13 +1,6 @@
 <?php
 /*
- *   CC BY-NC-AS UTA FabLab 2016-2017
- *   FabApp V 0.9
- */
-
-/**
- * Description of Devices
- *
- * @author Jon Le
+	Description of Theaters
  */
 
 
@@ -130,6 +123,29 @@ class theaters {
 			}
     	}
     	echo "<td align = 'center'><i class='fas fa-".$symbol." fa-fw' style='color:".$color."'></i>&nbsp; " . $theater_id . "</td>";
+    }
+    
+    public static function printKey($theater_id){
+/*    	global $mysqli;
+    	//look up current theater status
+    	$color = "white";
+    	$symbol = "circle";
+    	 
+    	$select = "SELECT * FROM THEATERS WHERE ID = " . $theater_id;
+    
+    	if($status = $mysqli->query($select)){
+    		$status = $status->fetch_assoc();
+    		if($status['STATUS'] == 1)
+    			$color = "black";
+    			elseif($status['STATUS'] == 2){
+    				$symbol = "check";
+    				$color = "green";
+    			}elseif($status['STATUS'] == 3){
+    				$color = "red";
+    				$symbol = "times";
+    			}
+    	}
+    	echo "<td align = 'center'><i class='fas fa-".$symbol." fa-fw' style='color:".$color."'></i>&nbsp; " . $theater_id . "</td>";*/
     }
     
 }

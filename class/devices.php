@@ -1,13 +1,7 @@
 <?php
 /*
- *   CC BY-NC-AS UTA FabLab 2016-2017
- *   FabApp V 0.9
- */
-
-/**
- * Description of Devices
- *
- * @author Jon Le
+	Description of Cameras
+	TODO NOT DEFINED
  */
 
 
