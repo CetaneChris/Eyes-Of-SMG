@@ -21,15 +21,15 @@
                 </div>
                 <div class="panel-body">
                     <table id="products" class="table table-striped table-bordered"><?php
-							$query = "SELECT * FROM DEVICES";
+							$query = "SELECT * FROM THEATERS";
         
 							$result = $mysqli->query($query);
 				
 				        	//display column headers
 				            echo "<thead>";
-					        	echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Theater</th>";
-	        					echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Movie</th>";
-	            				echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Remaining Time</th></tr>";
+					        	echo "<th style='text-align:center' width=\"33%\">Theater</th>";
+	        					echo "<th style='text-align:center' width=\"33%\">Movie</th>";
+	            				echo "<th style='text-align:center' width=\"33%\">Remaining Time</th></tr>";
 				            echo "</thead>";
 
 				            //display the data
@@ -38,13 +38,13 @@
 				                  	echo "<tr>";
 				                  	
 				                  	//Theater ID
-				                  	echo "<td align='center'>" . $row['description'] . "</td>";
+				                  	theaters::printDot($row['ID']);
 
 				                  	//Cost
-				                  	echo "<td align='center'>$" . $row['cost'] . "</td>";
+				                  	echo "<td align='center'>placeholder</td>";
 
 				                  	//Image
-				                  	echo "<td align='center'><img src=\"/images/" . $row['product_image'] . "\" alt=\"" . $row['description'] . "\" style=\"width:50px;height:50px\"></td>";
+				                  	echo "<td align='center'>placeholder</td>";
 				                  	
 				                  	echo "</tr>";
 				            	}

@@ -109,21 +109,27 @@ class theaters {
         $this->status = $status;
     }
     
-    public static function printDot(){
-    	//look up current device status
-    	$dot = 0;
+    public static function printDot($theater_id){
+    	global $mysqli;
+    	//look up current theater status
     	$color = "white";
     	$symbol = "circle";
+    	
+    	$select = "SELECT * FROM THEATERS WHERE ID = " . $theater_id;
 
-    	if($status == NULL || $dot == 0)
-			$color = "green";
-		elseif($dot < 7)
-			$color = "yellow";
-		else{
-			$color = "red";
-			$symbol = "times";
-		}
-    	echo "<td><i class='fa fa-".$symbol." fa-fw' style='color:".$color."'></i>&nbsp; " . $theater_id . "</td>";
+    	if($status = $mysqli->query($select)){
+    		$status = $status->fetch_assoc();
+	    	if($status['STATUS'] == 1)
+				$color = "black";
+	    	elseif($status['STATUS'] == 2){
+	    		$symbol = "check";
+				$color = "green";
+	    	}elseif($status['STATUS'] == 3){
+				$color = "red";
+				$symbol = "times";
+			}
+    	}
+    	echo "<td align = 'center'><i class='fas fa-".$symbol." fa-fw' style='color:".$color."'></i>&nbsp; " . $theater_id . "</td>";
     }
     
 }
