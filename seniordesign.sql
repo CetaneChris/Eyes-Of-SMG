@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2018 at 11:14 PM
--- Server version: 5.7.14-log
+-- Generation Time: Feb 13, 2018 at 05:20 PM
+-- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,10 +28,11 @@ USE `seniordesign`;
 -- Table structure for table `devices`
 --
 
-CREATE TABLE `devices` (
-  `D_ID` int(11) NOT NULL,
-  `ROOM_ID` int(11) NOT NULL,
-  `LOCATION_ID` int(11) NOT NULL
+DROP TABLE IF EXISTS `devices`;
+CREATE TABLE IF NOT EXISTS `devices` (
+  `D_ID` int NOT NULL,
+  `ROOM_ID` int NOT NULL,
+  `LOCATION_ID` int NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -40,8 +41,9 @@ CREATE TABLE `devices` (
 -- Table structure for table `status`
 --
 
-CREATE TABLE `status` (
-  `ID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `status`;
+CREATE TABLE IF NOT EXISTS `status` (
+  `ID` int NOT NULL,
   `MESSAGE` varchar(32) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -49,10 +51,9 @@ CREATE TABLE `status` (
 -- Dumping data for table `status`
 --
 
-INSERT INTO `status` (`ID`, `MESSAGE`) VALUES
-(1, 'Ads'),
-(2, 'Movie'),
-(3, 'Cleaning');
+INSERT INTO `status` (`ID`, `MESSAGE`) VALUES(1, 'Ads');
+INSERT INTO `status` (`ID`, `MESSAGE`) VALUES(2, 'Movie');
+INSERT INTO `status` (`ID`, `MESSAGE`) VALUES(3, 'Cleaning');
 
 -- --------------------------------------------------------
 
@@ -60,18 +61,32 @@ INSERT INTO `status` (`ID`, `MESSAGE`) VALUES
 -- Table structure for table `theaters`
 --
 
-CREATE TABLE `theaters` (
-  `ID` int(11) NOT NULL,
-  `STATUS` int(11) NOT NULL
+DROP TABLE IF EXISTS `theaters`;
+CREATE TABLE IF NOT EXISTS `theaters` (
+  `ID` int NOT NULL,
+  `STATUS` int NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `theaters`
 --
 
-INSERT INTO `theaters` (`ID`, `STATUS`) VALUES
-(1, 1),
-(2, 3);
+INSERT INTO `theaters` (`ID`, `STATUS`) VALUES(1, 1);
+INSERT INTO `theaters` (`ID`, `STATUS`) VALUES(2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `track_eyes`
+--
+
+DROP TABLE IF EXISTS `track_eyes`;
+CREATE TABLE IF NOT EXISTS `track_eyes` (
+  `D_ID` int NOT NULL,
+  `HAS_ATTENTION` int NOT NULL,
+  `NO_ATTENTION` int NOT NULL,
+  `TIMESTAMP` timestamp NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
