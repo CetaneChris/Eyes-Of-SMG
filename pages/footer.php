@@ -2,7 +2,6 @@
     </div>
     <!-- /#wrapper -->
 <script type="text/javascript">
-setTimeout(function(){window.location.reload(1)}, 301000);
 </script>
     <script src="/vendor/jquery/jquery-1.12.4.js"></script>
     <script src="/vendor/jquery/jquery.min.js"></script>

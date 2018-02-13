@@ -29,8 +29,7 @@
 ob_start();
 date_default_timezone_set('America/Chicago');
 include_once ($_SERVER['DOCUMENT_ROOT'].'/connections/db_connect8.php');
-include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');
-session_start();?>
+include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');?>
 </head>
 <body>
     <div id="wrapper">
@@ -56,6 +55,8 @@ session_start();?>
                             <a href="/index.php"><i class="fa fa-building fa-fw"></i> Home</a>
                         </li>
                         <li>
+                            <a href="/pages/newDevice.php"><i class="fas fa-video fa-fw"></i> New Device</a>
+                        </li><li>
                             <a href="/pages/reporting.php"><i class="fas fa-chart-line fa-fw"></i> Reporting</a>
                         </li>
                     </ul>
