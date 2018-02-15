@@ -5,11 +5,11 @@
  */
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
 ?>
-<title><?php echo $sv['site_name'];?> Base</title>
+<title>Reporting</title>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Page Name</h1>
+            <h1 class="page-header">Reporting</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -26,7 +26,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
             </div>
         </div>
         <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
+        <?php /*<div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-calculator fa-fw"></i> Col 4
@@ -37,7 +37,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
-        </div>
+        </div>*/?>
         <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
