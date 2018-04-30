@@ -62,28 +62,27 @@
                 </div>
                 <div class="panel-body">
 					<table id="history" class="table table-striped table-bordered"><?php
-						$query = "SELECT * FROM DEVICES";
+						$query = "SELECT * FROM STATUS";
         
 						$result = $mysqli->query($query);
 				
 				        //display column headers
 				        echo "<thead>";
-					      	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Symbol</th>";
-	            			echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Status</th></tr>";
+					      	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Number</th>";
+	            			echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Messae</th></tr>";
 				        echo "</thead>";
 
 				        //display the data
-				        /*echo "<tbody>";
+				        echo "<tbody>";
 				          	while($row = mysqli_fetch_array($result)){
 				               	echo "<tr>";
 
 				               	//Device Name
-				               	echo "<td align='center'>" . $row['name'] . "</td>";
+				               	echo "<td align='center'>" . $row['ID'] . "</td>";
 
         			          	//By
-				               	echo "<td align='center'>" . $row['idnumber'] . "</td>";
-							}*/
-			                  ?>   
+				               	echo "<td align='center'>" . $row['MESSAGE'] . "</td>";
+							}?>   
 			            </tbody>
 					</table>
                 </div>
@@ -95,6 +94,11 @@
     </div>
     <!-- /.row -->
 </div>
+<script type="text/javascript" charset="utf-8">
+	window.onload = function() {
+	   	$('#products').DataTable();
+    };
+</script>
 <!-- /#page-wrapper -->
 <?php
 //Standard call for dependencies
