@@ -12,7 +12,6 @@
 				<h1 class="page-header">New Device</h1>
 			</div>
 		</div>
-		<!-- /.row -->
 		<div class="row">
 			<div class="col-lg-10">
 				<div class="alert alert-danger" role = "alert" id="errordiv" style="display:none;">

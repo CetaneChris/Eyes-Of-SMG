@@ -18,6 +18,11 @@
                 <div class="panel-heading">
                     <i class="fa fa-users fa-fw"></i> Occupancy
                 </div>
+                <div class="panel-heading">
+                	<?php if($mysqli){?>
+                		<div class="panel-heading"> Connected
+                    <?php }?>
+                </div>
                 <div class="panel-body">
                     <table id="products" class="table table-striped table-bordered"><?php
 							$query = "SELECT * FROM THEATERS";
