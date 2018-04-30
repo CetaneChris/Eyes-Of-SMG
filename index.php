@@ -16,12 +16,7 @@
             <div class="panel panel-default">
             <!-- Defines left table, filled with theater number, status, and current movie -->
                 <div class="panel-heading">
-                    <i class="fa fa-users fa-fw"></i> Occupancy
-                </div>
-                <div class="panel-heading">
-                	<?php if($mysqli){?>
-                		<div class="panel-heading"> Connected
-                    <?php }?>
+                    <i class="fa fa-users fa-fw"></i> Occupancy<?php if($mysqli){?>  Connected<?php }?>
                 </div>
                 <div class="panel-body">
                     <table id="products" class="table table-striped table-bordered"><?php
