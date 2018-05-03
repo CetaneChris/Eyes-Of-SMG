@@ -17,9 +17,6 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
     <div class="row">
         <div class="col-lg-8">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fas fa-chart-line fa-fw"></i> Title
-                </div>
                 <div class="panel-body">
                     
                 </div>

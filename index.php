@@ -16,38 +16,37 @@
             <div class="panel panel-default">
             <!-- Defines left table, filled with theater number, status, and current movie -->
                 <div class="panel-heading">
-                    <i class="fa fa-users fa-fw"></i> Occupancy<?php if($mysqli){?>  Connected<?php }?>
+                    <i class="fa fa-users fa-fw"></i> Occupancy
                 </div>
                 <div class="panel-body">
                     <table id="products" class="table table-striped table-bordered"><?php
-							$query = "select * from theaters";
-        
-							$result = $mysqli->query($query);
-				
-				        	//display column headers
-				            echo "<thead>";
-					        	echo "<th style='text-align:center' width=\"33%\">Theater</th>";
-	        					echo "<th style='text-align:center' width=\"33%\">Movie</th>";
-	            				echo "<th style='text-align:center' width=\"33%\">Remaining Time</th></tr>";
-				            echo "</thead>";
+						$query = "select * from theaters";
+						$result = $mysqli->query($query);
 
-				            //display the data
-				            echo "<tbody>";
-				            	while($row = mysqli_fetch_array($result)){
-				                  	echo "<tr>";
+			        	//display column headers
+			            echo "<thead>";
+				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+1) . "%\">Theater</th>";
+	       					echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+1) . "%\">Movie</th>";
+	           				echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+1) . "%\">Remaining Time</th></tr>";
+			            echo "</thead>";
+
+			            //display the data
+			            echo "<tbody>";
+			            	while($row = mysqli_fetch_array($result)){
+			                  	echo "<tr>";
+
+			                  	//Theater ID
+			                  	theaters::printDot($row['ID']);
+
+			                  	//Cost
+			                  	echo "<td align='center'>placeholder</td>";
+
+			                  	//Image
+			                  	echo "<td align='center'>placeholder</td>";
 				                  	
-				                  	//Theater ID
-				                  	theaters::printDot($row['ID']);
-
-				                  	//Cost
-				                  	echo "<td align='center'>placeholder</td>";
-
-				                  	//Image
-				                  	echo "<td align='center'>placeholder</td>";
-				                  	
-				                  	echo "</tr>";
-				            	}
-			                  ?>   
+			                  	echo "</tr>";
+			            	}
+						?>   
 			            </tbody>
 					</table>
                 </div>
@@ -68,8 +67,8 @@
 				
 				        //display column headers
 				        echo "<thead>";
-					      	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Number</th>";
-	            			echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+2) . "%\">Messae</th></tr>";
+					      	echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Number</th>";
+	            			echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Messae</th></tr>";
 				        echo "</thead>";
 
 				        //display the data

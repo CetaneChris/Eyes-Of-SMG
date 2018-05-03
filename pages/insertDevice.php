@@ -2,7 +2,7 @@
 	Will insert new devices to the database
  -->
 <?php include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php'); ?>
-<title>Food Service Vendor New Customer</title>
+<title>Food Service Vendor New Device</title>
 
 <?php
 	if ($mysqli->connect_errno) {
