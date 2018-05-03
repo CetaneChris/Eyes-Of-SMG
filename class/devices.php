@@ -23,8 +23,8 @@ class Devices {
         
         if ($result = $mysqli->query("
              SELECT *
-             FROM `Devices`
-             WHERE `d_id` = '$d_id';
+             FROM devices
+             WHERE d_id = '$d_id';
         ")){
             $row = $result->fetch_assoc();
             
@@ -40,7 +40,7 @@ class Devices {
         } else
             throw new Exception("Invalid Device ID");
     }
-    
+    /*
     public static function is_open($d_id){
         global $mysqli;
         
@@ -97,7 +97,7 @@ class Devices {
             return false;
         }
     }
-    
+    */
     public function getD_id() {
         return $this->d_id;
     }

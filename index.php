@@ -20,7 +20,7 @@
                 </div>
                 <div class="panel-body">
                     <table id="products" class="table table-striped table-bordered"><?php
-							$query = "SELECT * FROM THEATERS";
+							$query = "select * from theaters";
         
 							$result = $mysqli->query($query);
 				
@@ -62,7 +62,7 @@
                 </div>
                 <div class="panel-body">
 					<table id="history" class="table table-striped table-bordered"><?php
-						$query = "SELECT * FROM STATUS";
+						$query = "select * from status";
         
 						$result = $mysqli->query($query);
 				

@@ -15,7 +15,7 @@ class theaters {
         
         if ($result = $mysqli->query("
              SELECT *
-             FROM Theaters
+             FROM theaters
              WHERE `theater_id` = '$theater_id';
         ")){
             $row = $result->fetch_assoc();
