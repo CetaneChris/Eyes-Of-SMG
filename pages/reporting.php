@@ -18,7 +18,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/testing?panelId=2&orgId=1&from=1687554592149&to=1687556254335" width="700" height="700" frameborder="0"></iframe>
+                    <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/testing?panelId=2&orgId=1&tab=metrics&from=1525393229668&to=1525404029668" width="700" height="700" frameborder="0"></iframe>
                 </div>
             </div>
         </div>
