@@ -19,7 +19,7 @@
                     <i class="fa fa-users fa-fw"></i> Occupancy
                 </div>
                 <div class="panel-body">
-                    <table id="products" class="table table-striped table-bordered"><?php
+                    <table id="theaters" class="table table-striped table-bordered"><?php
 						$query = "select * from theaters";
 						$result = $mysqli->query($query);
 
@@ -62,7 +62,6 @@
                 <div class="panel-body">
 					<table id="history" class="table table-striped table-bordered"><?php
 						$query = "select * from status";
-        
 						$result = $mysqli->query($query);
 				
 				        //display column headers
@@ -95,7 +94,7 @@
 </div>
 <script type="text/javascript" charset="utf-8">
 	window.onload = function() {
-	   	$('#products').DataTable();
+	   	$('#theaters').DataTable();
     };
 </script>
 <!-- /#page-wrapper -->
