@@ -2,7 +2,6 @@
 	Will create the form for adding a device
  -->
 <?php include_once ($_SERVER ['DOCUMENT_ROOT'] . '/pages/header.php'); ?>
-<script src="jquery.js"> </script>
 <title>Insert Device</title>
 
 <body>
@@ -14,7 +13,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-10">
-				<div class="alert alert-danger" role = "alert" id="errordiv" style="display:none;">
+				<div class="alert alert-danger" role = "alert" id="errordiv" style="display:none">
 					<p id="errormessage"></p>
 				</div>
 				<div class="panel panel-default">
@@ -67,17 +66,16 @@
     	var room_num    = document.getElementById("room_num").value;
     	var theater_num = document.getElementById("theater_num").value;
     	    
-    	if(D_ID == "" || room_num == "" ||  theater_num == ""){
+    	if(D_ID == "" || room_num == "" || theater_num == ""){
     		document.getElementById('errordiv').style.display = 'block';
-    
     		document.getElementById("errormessage").innerHTML = "All fields are required";
-    		
+
     		return false;
     	}
     }
 </script>
 <!-- The following script gets the response for device dropdown using dg_id from the group selection -->
 <?php
-    // Standard call for dependencies
-    include_once ($_SERVER ['DOCUMENT_ROOT'] . '/pages/footer.php');
-    ?>
+// Standard call for dependencies
+include_once ($_SERVER ['DOCUMENT_ROOT'] . '/pages/footer.php');
+?>
