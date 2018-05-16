@@ -6,9 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Eyes-of-SMG Senior Design Project">
 	<meta name="author" content="NightOps">
-	<link rel="shortcut icon" href="/images/fa-icon.png" type="image/png">
 
-	<link href="/vendor/fabapp/fabapp.css?=v3" rel="stylesheet">
+	<link href="/vendor/nightops/nightops.css" rel="stylesheet">
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="/vendor/datatables/css/dataTables.min.css" rel="stylesheet">
