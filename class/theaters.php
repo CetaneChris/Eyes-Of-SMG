@@ -108,7 +108,7 @@ class theaters {
     	$color = "white";
     	$symbol = "circle";
     	
-    	$select = "SELECT * FROM THEATERS WHERE ID = " . $theater_id;
+    	$select = "SELECT * FROM theaters WHERE ID = " . $theater_id;
 
     	if($status = $mysqli->query($select)){
     		$status = $status->fetch_assoc();
