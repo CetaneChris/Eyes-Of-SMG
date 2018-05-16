@@ -10,7 +10,7 @@
 	<link href="/vendor/nightops/nightops.css" rel="stylesheet">
 	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="/vendor/datatables/css/dataTables.min.css" rel="stylesheet">
+	<link href="/vendor/datatables/css/datatables.min.css" rel="stylesheet">
 	<link href="/vendor/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
 	<link href="/vendor/jquery/jquery.dataTables.min.css" rel="stylesheet">
 	<link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
