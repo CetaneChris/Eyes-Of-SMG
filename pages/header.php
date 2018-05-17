@@ -38,6 +38,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');?>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand" id="navbar-brand" href="/index.php"><img src="/images/SMG.png" width="" height="50" type="image/png"></a>
             </div>
             <!-- /.navbar-header -->
 
