@@ -11,8 +11,7 @@ class theaters {
     public function __construct($theater_id) {
         global $mysqli;
         $this->theater_id = $theater_id;
-        
-        
+
         if ($result = $mysqli->query("
              SELECT *
              FROM theaters
@@ -122,7 +121,7 @@ class theaters {
 				$symbol = "times";
 			}
     	}
-    	echo "<td align = 'center'><i class='fas fa-".$symbol." fa-fw' style='color:".$color."'></i>&nbsp; " . $theater_id . "</td>";
+    	echo "<td align = 'center'><i class='fas fa-".$symbol." fa-fw' style='color:".$color."'></i>&nbsp; <a href = '/pages/reporting.php?theater_number=".$theater_id."'>" . $theater_id . "</td>";
     }
     
     public static function printKey($theater_id){
