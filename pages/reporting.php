@@ -9,7 +9,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Reporting</h1>
+            <h1 class="page-header">Total People in Theater and Engaged</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
