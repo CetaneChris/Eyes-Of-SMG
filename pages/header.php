@@ -27,7 +27,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');?>
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id='navbar'>
             <div class="navbar-header">
-                <a class="navbar-brand" id="navbar-brand" href="/index.php"><img src="/images/groupLogo_white.png" width="" height="50" type="image/png"></a>
+                <a class="navbar-brand" id="navbar-brand" href="/index.php"><img src="/images/groupLogo_white.png" width="150" height="50" type="image/png"></a>
             </div>
             <!-- /.navbar-header -->
 
