@@ -12,7 +12,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="panel panel-default">
             <!-- Defines left table, filled with theater number, status, and current movie -->
                 <div class="panel-heading">
@@ -20,14 +20,15 @@
                 </div>
                 <div class="panel-body">
                     <table id="theaters" class="table table-striped table-bordered"><?php
-						$query = "select * from theaters order by `theaters`.`ID` + 0 asc";
+						$query = "SELECT t.ID, s.message FROM theaters t left outer join `status` s on t.status=s.id order by t.id + 0 asc";
 						$result = $mysqli->query($query);
 
 			        	//display column headers
 			            echo "<thead>";
-				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+1) . "%\">Theater</th>";
-	       					echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+1) . "%\">Movie</th>";
-	           				echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+1) . "%\">Remaining Time</th></tr>";
+				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Theater Number</th>";
+				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Status</th>";
+	       					echo "<th style='text-align:center' width=\"" . 3*(100/6) . "%\">Movie</th>";
+	           				echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Remaining Time</th></tr>";
 			            echo "</thead>";
 
 			            //display the data
@@ -36,12 +37,16 @@
 			                  	echo "<tr>";
 
 			                  	//Theater ID
-			                  	theaters::printDot($row['ID']);
+			                  	//theaters::printDot($row['ID']);
+			                  	echo "<td align = 'center'><a href = '/pages/reporting.php?theater_number=".$row['ID']."'>" . $row['ID'] . "</td>";
 
-			                  	//Cost
+			                  	//Status
+			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
+			                  	
+			                  	//Movie
 			                  	echo "<td align='center'>placeholder</td>";
 
-			                  	//Image
+			                  	//Remaining Time
 			                  	echo "<td align='center'>placeholder</td>";
 				                  	
 			                  	echo "</tr>";
@@ -52,15 +57,15 @@
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-8 -->
+        <!-- /.col-lg-8 ->
         <div class="col-lg-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                <!-- Defining table on the right, will have a key between dot color and meaning -->
+                <!-- Defining table on the right, will have a key between dot color and meaning ->
                     <i class="fas fa-ticket-alt fa-fw"></i> Key
                 </div>
                 <div class="panel-body">
-					<table id="history" class="table table-striped table-bordered"><?php
+					<table id="history" class="table table-striped table-bordered"><?php /*
 						$query = "select * from status";
 						$result = $mysqli->query($query);
 				
@@ -91,13 +96,13 @@
 
         			          	//Message
 				               	echo "<td align='center'>" . $row['MESSAGE'] . "</td>";
-							}?>   
+							}*/?>   
 			            </tbody>
 					</table>
                 </div>
-                <!-- /.panel-body -->
+                <!-- /.panel-body ->
             </div>
-            <!-- /.panel -->
+            <!-- /.panel ->
         </div>
         <!-- /.col-lg-4 -->
     </div>
@@ -107,7 +112,7 @@
 	window.onload = function() {
 	   	$('#theaters').DataTable({
 	   		"columnDefs": [
-				{"type": "num-html", targets: 0}
+				{"type": "any-number", targets: 0}
 			]
 	   	});
     };
