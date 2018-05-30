@@ -9,7 +9,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Total People in Theater and Engaged</h1>
+            <h1 class="page-header">Total and Engaged Customers in Theater</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -18,7 +18,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/testing?panelId=2&orgId=1&tab=metrics&var-theater_number=<?php echo $_GET['theater_number']?>" width="775" height="250" frameborder="0"></iframe>
+                    <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/testing?panelId=2&orgId=1&tab=metrics&var-theater_number=<?php echo $_GET['theater_number']?>" width="760" height="250" frameborder="0"></iframe>
                 </div>
             </div>
         </div>

@@ -27,23 +27,32 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');?>
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" id='navbar'>
             <div class="navbar-header">
-                <a class="navbar-brand" id="navbar-brand" href="/index.php"><img src="/images/groupLogo_white.png" width="150" height="50" type="image/png"></a>
+           		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>                        
+      			</button>
+                <a class="navbar-brand" id="navbar-brand" href="/index.php"><img src="/images/groupLogo_white.png" width="175" height="50" type="image/png"></a>
             </div>
             <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right"></ul>
-            <!-- /.navbar-top-links -->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                    	<li>
-                            <a href="/pages/newDevice.php"><i class="fas fa-video fa-fw"></i> New Device</a>
-                        </li><li>
-                            <a href="/pages/js_reporting.php"><i class="fas fa-chart-line fa-fw"></i> NodeJS</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/index.php"><i class="fa fa-building fa-fw"></i> Home</a></li>
+					<li><a href="/pages/newDevice.php"><i class="fas fa-video fa-fw"></i> Admin</a></li>
+					<li><a href="/pages/js_reporting.php"><i class="fas fa-chart-line fa-fw"></i> NodeJS</a></li>
+	            </ul>
+	        </div>
+            <!-- /.navbar-top-links ->
+            <div class="sidebar" role="navigation">
+				<ul class="nav" id="side-menu">
+					<li>
+                        <a href="/index.php"><i class="fa fa-building fa-fw"></i> Home</a>
+                    </li><li>
+						<a href="/pages/newDevice.php"><i class="fas fa-video fa-fw"></i> New Device</a>
+					</li><li>
+						<a href="/pages/js_reporting.php"><i class="fas fa-chart-line fa-fw"></i> NodeJS</a>
+					</li>
+				</ul>
             </div>
-            <!-- /.navbar-static-side -->
+            <!-- /.navbar-side -->
         </nav>

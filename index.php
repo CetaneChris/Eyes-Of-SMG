@@ -20,7 +20,7 @@
                 </div>
                 <div class="panel-body">
                     <table id="theaters" class="table table-striped table-bordered"><?php
-						$query = "select * from theaters";
+						$query = "select * from theaters order by `theaters`.`ID` + 0 asc";
 						$result = $mysqli->query($query);
 
 			        	//display column headers
@@ -66,8 +66,8 @@
 				
 				        //display column headers
 				        echo "<thead>";
-					      	echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Number</th>";
-	            			echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Messae</th></tr>";
+					      	echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Symbol</th>";
+	            			echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Displayed on Screen</th></tr>";
 				        echo "</thead>";
 
 				        //display the data
@@ -75,10 +75,21 @@
 				          	while($row = mysqli_fetch_array($result)){
 				               	echo "<tr>";
 
-				               	//Device Name
-				               	echo "<td align='center'>" . $row['ID'] . "</td>";
+				               	//Symbol
+				               	$color = "white";
+				               	$symbol = "circle";
+				               	if($row['ID'] == 1)
+				               		$color = "black";
+			               		elseif($row['ID'] == 2){
+			               			$symbol = "check";
+			               			$color = "green";
+			               		}elseif($row['ID'] == 3){
+			               			$color = "red";
+			               			$symbol = "times";
+			               		}
+				               	echo "<td align='center'><i class='fas fa-".$symbol." fa-fw' style='color:".$color."'></i></td>";
 
-        			          	//By
+        			          	//Message
 				               	echo "<td align='center'>" . $row['MESSAGE'] . "</td>";
 							}?>   
 			            </tbody>
@@ -94,7 +105,11 @@
 </div>
 <script type="text/javascript" charset="utf-8">
 	window.onload = function() {
-	   	$('#theaters').DataTable();
+	   	$('#theaters').DataTable({
+	   		"columnDefs": [
+				{"type": "num-html", targets: 0}
+			]
+	   	});
     };
 </script>
 <!-- /#page-wrapper -->
