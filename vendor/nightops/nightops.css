@@ -1,6 +1,7 @@
 #navbar{
     background-color: #484848;
-    border-color: #000000;    
+    border-color: #000000;
+    padding:5px 15px;
 }
 
 #navbar-brand{
