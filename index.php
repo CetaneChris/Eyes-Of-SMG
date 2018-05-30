@@ -20,7 +20,7 @@
                 </div>
                 <div class="panel-body">
                     <table id="theaters" class="table table-striped table-bordered"><?php
-						$query = "SELECT t.ID, s.message FROM theaters t left outer join `status` s on t.status=s.id order by t.id + 0 asc";
+						$query = "SELECT t.ID, s.message FROM theaters t left outer join `status` s on t.status=s.id order by t.id asc";
 						$result = $mysqli->query($query);
 
 			        	//display column headers
@@ -38,7 +38,7 @@
 
 			                  	//Theater ID
 			                  	//theaters::printDot($row['ID']);
-			                  	echo "<td align = 'center'><a href = '/pages/reporting.php?theater_number=".$row['ID']."'>" . $row['ID'] . "</td>";
+			                  	echo "<td align = 'center'><a href = '/pages/reporting.php?theater_number=".$row['ID']."'>" . $row['ID'] . "</a></td>";
 
 			                  	//Status
 			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
@@ -112,7 +112,8 @@
 	window.onload = function() {
 	   	$('#theaters').DataTable({
 	   		"columnDefs": [
-				{"type": "any-number", targets: 0}
+				{"sType": "num-html", targets: 0},
+				{"type": "num-html", targets: 0}
 			]
 	   	});
     };
