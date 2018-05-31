@@ -1,23 +1,17 @@
-<?php
-/*
- *   CC BY-NC-AS UTA FabLab 2016-2017
- *   FabApp V 0.9
- */
-include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
-?>
+<?php include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');?>
 <title>Reporting</title>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" align="center">Total and Engaged Customers in Theater</h1>
+            <h1 class="page-header" align="center">Total and Engaged Customers in Theater Number <?php echo $_GET['theater_number']?></h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    <div class="row" height="1000px">
-        <div class="col-lg-12" height="1000px">
-            <div class="panel panel-default" height="1000px">
-                <div class="panel-body" height="1000px">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
                     <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/testing?panelId=2&orgId=1&tab=metrics&var-theater_number=<?php echo $_GET['theater_number']?>" style="width: 100%;" height="500" frameborder="3"></iframe>
                 </div>
             </div>
@@ -42,5 +36,4 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
 <!-- /#page-wrapper -->
 <?php
 //Standard call for dependencies
-include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php');
-?>
+include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php')?>
