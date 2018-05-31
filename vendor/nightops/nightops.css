@@ -4,6 +4,11 @@
     padding:5px 15px;
 }
 
+.nav.navbar-nav.navbar-right li a {
+    color: white;
+    /*line-height: 25px;*/
+}
+
 #navbar-brand{
     float:left;
     height:60px;

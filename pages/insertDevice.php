@@ -10,20 +10,17 @@
 		exit ();
 	}
 
-	$name = $_POST['name'];	
-	$phoneno = $_POST['pno'];
-	$address = $_POST['address'];
-	$email = $_POST['email'];
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	$createdate = date("Y-m-d");
+	$D1_ID       = $_POST['D1_ID'];
+	$D2_ID       = $_POST['D2_ID'];
+	$LOC_ID      = $_POST['LOC_ID'];
+	$theater_num = $_POST['theater_num'];
 
-	$insert = "INSERT INTO `customer` (`name`, `phoneno`, `address`, `email`, `username`, `password`, `createddate`, `idnumber`) VALUES ('" . $name . "', '" . $phoneno."', '" . $address . "', '" . $email . "', '" . $username . "', '" . $password . "', '" . $createdate . "', NULL);";
+	$insert = "INSERT INTO `devices` (`D1_ID`, `D2_ID`, `LOC_ID`, `theater_num`) VALUES ('" . $D1_ID . "', '" . $D2_ID . "', '" . $LOC_ID . "', '" . $theater_num . "');";
 	if($result = $mysqli->query($insert))
-		$fieldReport = "Your customer has been submitted!";
+		$fieldReport = "Theater number " . $theater_num . " has been submitted!";
 	else
 		$fieldReport = "Error in submitting";
-	header("refresh:10; url=/pages/newCustomer.php");
+	header("refresh:10; url=/pages/newDevice.php");
 
 ?>
 

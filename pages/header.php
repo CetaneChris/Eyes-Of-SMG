@@ -42,17 +42,5 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');?>
 					<li><a href="/pages/js_reporting.php"><i class="fas fa-chart-line fa-fw"></i> NodeJS</a></li>
 	            </ul>
 	        </div>
-            <!-- /.navbar-top-links ->
-            <div class="sidebar" role="navigation">
-				<ul class="nav" id="side-menu">
-					<li>
-                        <a href="/index.php"><i class="fa fa-building fa-fw"></i> Home</a>
-                    </li><li>
-						<a href="/pages/newDevice.php"><i class="fas fa-video fa-fw"></i> New Device</a>
-					</li><li>
-						<a href="/pages/js_reporting.php"><i class="fas fa-chart-line fa-fw"></i> NodeJS</a>
-					</li>
-				</ul>
-            </div>
-            <!-- /.navbar-side -->
+            <!-- /.navbar-top-links -->
         </nav>
