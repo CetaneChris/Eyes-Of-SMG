@@ -10,17 +10,16 @@
 		exit ();
 	}
 	$stmt = $mysqli->prepare("INSERT INTO `devices` VALUES (?, ?, ?)");
-	$stmt->bind_param("sss", $D_ID, $LOC_ID, $theater_num);
+	$stmt->bind_param("sss", $D_ID, $theater_num, $LOC_ID);
 	
 	$D_ID        = $_POST['D1_ID'];
-	$LOC_ID      = $_POST['LOC_ID'];
 	$theater_num = $_POST['theater_num'];
+	$LOC_ID      = $_POST['LOC_ID'];
 
 	if($stmt->execute()){
-    	$D_ID        = $_POST['D2_ID'];
+	    $D_ID        = $_POST['D2_ID'];
+	    $theater_num = $_POST['theater_num'];
     	$LOC_ID      = $_POST['LOC_ID'];
-    	$theater_num = $_POST['theater_num'];
-    	$stmt->execute();
 
     	if($stmt->execute())
 		    $fieldReport = "Theater number " . $theater_num . " has been submitted!";
@@ -28,6 +27,8 @@
 	        $fieldReport = "Error: Device 2 not submitted";
 	}else
 		$fieldReport = "Error: Device 1 not submitted";
+	
+	$stmt->close();
 	header("refresh:10; url=/pages/newDevice.php");
 
 ?>
