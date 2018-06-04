@@ -18,7 +18,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
         <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <script type="text/javascript" src="db_connection.js"></script>
+                    <script type="text/javascript" src="./db_connection.js"></script>
                 </div>
             </div>
         </div>
