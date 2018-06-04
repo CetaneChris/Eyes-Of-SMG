@@ -3,12 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 04, 2018 at 01:34 AM
+-- Generation Time: Jun 04, 2018 at 02:07 AM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `seniordesign`
 --
-CREATE DATABASE IF NOT EXISTS `seniordesign` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `seniordesign`;
 
 -- --------------------------------------------------------
 
@@ -29,9 +28,10 @@ USE `seniordesign`;
 
 DROP TABLE IF EXISTS `devices`;
 CREATE TABLE IF NOT EXISTS `devices` (
-  `D_ID` int NOT NULL,
-  `THEATER_NUM` int NOT NULL,
-  `LOCATION_ID` int NOT NULL
+  `D_ID` INT NOT NULL,
+  `THEATER_NUM` INT NOT NULL,
+  `LOCATION_ID` INT NOT NULL,
+  UNIQUE KEY `D_ID` (`D_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -49,8 +49,9 @@ INSERT INTO `devices` VALUES(2, 1, 1);
 
 DROP TABLE IF EXISTS `status`;
 CREATE TABLE IF NOT EXISTS `status` (
-  `ID` int NOT NULL,
-  `MESSAGE` varchar(32) NOT NULL
+  `ID` INT NOT NULL,
+  `MESSAGE` varchar(32) NOT NULL,
+  UNIQUE KEY `ID` (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -69,8 +70,8 @@ INSERT INTO `status` VALUES(3, 'Cleaning');
 
 DROP TABLE IF EXISTS `theaters`;
 CREATE TABLE IF NOT EXISTS `theaters` (
-  `ID` int NOT NULL,
-  `STATUS` int NOT NULL,
+  `ID` INT NOT NULL,
+  `STATUS` INT NOT NULL,
   UNIQUE KEY `ID` (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -101,12 +102,12 @@ INSERT INTO `theaters` VALUES(14, 3);
 
 DROP TABLE IF EXISTS `track_eyes`;
 CREATE TABLE IF NOT EXISTS `track_eyes` (
-  `track_id` int NOT NULL AUTO_INCREMENT,
-  `D_ID` int NOT NULL,
-  `HAS_ATTENTION` int NOT NULL,
-  `TOTAL` int NOT NULL,
+  `TRACK_ID` INT NOT NULL AUTO_INCREMENT,
+  `D_ID` INT NOT NULL,
+  `HAS_ATTENTION` INT NOT NULL,
+  `TOTAL` INT NOT NULL,
   `TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`track_id`)
+  PRIMARY KEY (`TRACK_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
