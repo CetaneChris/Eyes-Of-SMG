@@ -37,3 +37,13 @@
 <?php
 //Standard call for dependencies
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php')?>
+
+<!-- 
+select 
+    t.timestamp,
+    sum(t.has_attention),
+    sum(t.total) from track_eyes t
+	inner join devices d on d.D_ID = t.D_ID
+	where d.THEATER_NUM = 1
+    group by t.TIMESTAMP
+ -->
