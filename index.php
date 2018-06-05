@@ -19,41 +19,43 @@
                     <i class="fa fa-users fa-fw"></i> Occupancy
                 </div>
                 <div class="panel-body">
-                    <table id="theaters" class="table table-striped table-bordered"><?php
-						$query = "SELECT t.ID, s.message FROM theaters t left outer join `status` s on t.status=s.id order by t.id asc";
-						$result = $mysqli->query($query);
-
-			        	//display column headers
-			            echo "<thead>";
-				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Theater Number</th>";
-				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Status</th>";
-	       					echo "<th style='text-align:center' width=\"" . 3*(100/6) . "%\">Movie</th>";
-	           				echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Remaining Time</th></tr>";
-			            echo "</thead>";
-
-			            //display the data
-			            echo "<tbody>";
-			            	while($row = mysqli_fetch_array($result)){
-			                  	echo "<tr>";
-
-			                  	//Theater ID
-			                  	//theaters::printDot($row['ID']);
-			                  	echo "<td align = 'center'><a href = '/pages/reporting.php?theater_number=".$row['ID']."'>" . $row['ID'] . "</a></td>";
-
-			                  	//Status
-			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
-			                  	
-			                  	//Movie
-			                  	echo "<td align='center'>placeholder</td>";
-
-			                  	//Remaining Time
-			                  	echo "<td align='center'>placeholder</td>";
-				                  	
-			                  	echo "</tr>";
-			            	}
-						?>   
-			            </tbody>
-					</table>
+                	<form name="homepage" method="POST"  action="/pages/reporting.php">
+                        <table id="theaters" class="table table-striped table-bordered"><?php
+    						$query = "SELECT t.ID, s.message FROM theaters t left outer join `status` s on t.status=s.id order by t.id asc";
+    						$result = $mysqli->query($query);
+    
+    			        	//display column headers
+    			            echo "<thead>";
+    				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Theater Number</th>";
+    				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Status</th>";
+    	       					echo "<th style='text-align:center' width=\"" . 3*(100/6) . "%\">Movie</th>";
+    	           				echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Remaining Time</th></tr>";
+    			            echo "</thead>";
+    
+    			            //display the data
+    			            echo "<tbody>";
+    			            	while($row = mysqli_fetch_array($result)){
+    			                  	echo "<tr>";
+    
+    			                  	//Theater ID
+    			                  	//theaters::printDot($row['ID']);
+    			                  	echo "<td align = 'center'><input type='submit' class='btn-primary' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
+    
+    			                  	//Status
+    			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
+    			                  	
+    			                  	//Movie
+    			                  	echo "<td align='center'>placeholder</td>";
+    
+    			                  	//Remaining Time
+    			                  	echo "<td align='center'>placeholder</td>";
+    				                  	
+    			                  	echo "</tr>";
+    			            	}
+    						?>   
+    			            </tbody>
+    					</table>
+					</form>
                 </div>
             </div>
         </div>

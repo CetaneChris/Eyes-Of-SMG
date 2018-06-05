@@ -20,7 +20,7 @@
 					<div class="panel-heading">
 						<i class="fa fa-shopping-cart fa-fw"></i> All fields are required
 					</div>
-					<form name="newdevice" method= "POST"  action="/pages/insertDevice.php" onsubmit="return validateForm();">
+					<form name="newdevice" method="POST"  action="/pages/insertDevice.php" onsubmit="return validateForm();">
 						<table class="table table-striped">
 							<tr>
 								<td>Device One ID</td>
