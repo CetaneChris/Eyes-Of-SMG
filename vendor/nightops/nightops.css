@@ -1,7 +1,6 @@
 #navbar{
     background-color: #484848;
     border-color: #000000;
-    padding:5px 15px;
 }
 
 .nav.navbar-nav.navbar-right li a {
@@ -13,12 +12,18 @@
     float:left;
     height:60px;
     padding:5px 15px;
-    font-size:18px;
-    line-height:20px
+    /*font-size:18px;
+    line-height:20px*/
 }
 
 .color-box{
     width: 20px;
     height: 20px;
     border: 1px solid #d8d8d8;
+}
+
+.nav {
+    position:absolute;
+    bottom:0;
+    right:1%;
 }
