@@ -16,7 +16,6 @@
 	<link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 	<link href="/vendor/blackrock-digital/css/sb-admin-2.css?=v8" rel="stylesheet">
 	<link href="/vendor/morrisjs/morris.css" rel="stylesheet">
-	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <?php
 date_default_timezone_set('America/Chicago');
 include_once ($_SERVER['DOCUMENT_ROOT'].'/connections/db_connect8.php');

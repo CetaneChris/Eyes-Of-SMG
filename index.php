@@ -21,7 +21,7 @@
                 <div class="panel-body">
                 	<form name="homepage" method="POST"  action="/pages/reporting.php">
                         <table id="theaters" class="table table-striped table-bordered"><?php
-    						$query = "SELECT t.ID, s.message FROM theaters t left outer join `status` s on t.status=s.id order by t.id asc";
+    						$query = "SELECT t.ID, s.message FROM theaters t inner join `status` s on t.status=s.id order by t.id asc";
     						$result = $mysqli->query($query);
     
     			        	//display column headers

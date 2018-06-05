@@ -9,5 +9,6 @@
     <script src="/vendor/metisMenu/metisMenu.min.js"></script>
     <script src="/vendor/morrisjs/morris.min.js"></script>
     <script src="/vendor/raphael/raphael.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>
