@@ -39,7 +39,7 @@
     
     			                  	//Theater ID
     			                  	//theaters::printDot($row['ID']);
-    			                  	echo "<td align = 'center'><input type='submit' class='btn' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
+    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-block' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
     
     			                  	//Status
     			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
