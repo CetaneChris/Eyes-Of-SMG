@@ -29,7 +29,7 @@
     				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Theater Number</th>";
     				        	echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Status</th>";
     	       					echo "<th style='text-align:center' width=\"" . 3*(100/6) . "%\">Movie</th>";
-    	           				echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Remaining Time</th></tr>";
+    	           				echo "<th style='text-align:center' width=\"" . 100/6 . "%\">Remaining Time</th>";
     			            echo "</thead>";
     
     			            //display the data
@@ -45,10 +45,10 @@
     			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
     			                  	
     			                  	//Movie
-    			                  	echo "<td align='center'>placeholder</td>";
+    			                  	echo "<td align='center'>placeholder" . $row['ID'] . "</td>";
     
     			                  	//Remaining Time
-    			                  	echo "<td align='center'>placeholder</td>";
+    			                  	echo "<td align='center'>placeholder" . $row['ID'] . "</td>";
     				                  	
     			                  	echo "</tr>";
     			            	}
@@ -60,53 +60,6 @@
             </div>
         </div>
         <!-- /.col-lg-8 ->
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                <!-- Defining table on the right, will have a key between dot color and meaning ->
-                    <i class="fas fa-ticket-alt fa-fw"></i> Key
-                </div>
-                <div class="panel-body">
-					<table id="history" class="table table-striped table-bordered"><?php /*
-						$query = "select * from status";
-						$result = $mysqli->query($query);
-				
-				        //display column headers
-				        echo "<thead>";
-					      	echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Symbol</th>";
-	            			echo "<th style='text-align:center' width=\"" . 100/mysqli_num_fields($result) . "%\">Displayed on Screen</th></tr>";
-				        echo "</thead>";
-
-				        //display the data
-				        echo "<tbody>";
-				          	while($row = mysqli_fetch_array($result)){
-				               	echo "<tr>";
-
-				               	//Symbol
-				               	$color = "white";
-				               	$symbol = "circle";
-				               	if($row['ID'] == 1)
-				               		$color = "black";
-			               		elseif($row['ID'] == 2){
-			               			$symbol = "check";
-			               			$color = "green";
-			               		}elseif($row['ID'] == 3){
-			               			$color = "red";
-			               			$symbol = "times";
-			               		}
-				               	echo "<td align='center'><i class='fas fa-".$symbol." fa-fw' style='color:".$color."'></i></td>";
-
-        			          	//Message
-				               	echo "<td align='center'>" . $row['MESSAGE'] . "</td>";
-							}*/?>   
-			            </tbody>
-					</table>
-                </div>
-                <!-- /.panel-body ->
-            </div>
-            <!-- /.panel ->
-        </div>
-        <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
 </div>

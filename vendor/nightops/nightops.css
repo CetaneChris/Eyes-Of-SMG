@@ -1,10 +1,12 @@
 #navbar{
     background-color: #484848;
     border-color: #000000;
+    padding:0px 15px;
 }
 
 .nav.navbar-nav.navbar-right li a {
     color: white;
+    padding:20px;
     /*line-height: 25px;*/
 }
 
@@ -22,8 +24,8 @@
     border: 1px solid #d8d8d8;
 }
 
-.nav {
+/*.nav {
     position:absolute;
     bottom:0;
     right:1%;
-}
+}*/
