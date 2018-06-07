@@ -21,7 +21,7 @@
                 <div class="panel-body">
                 	<form name="homepage" method="POST"  action="/pages/reporting.php">
                         <table id="theaters" class="table table-striped table-bordered"><?php
-    						$query = "SELECT t.ID, s.message FROM theaters t inner join `status` s on t.status=s.id order by t.id asc";
+    						$query = "SELECT t.ID, s.message, t.movie, t.remaining_time FROM theaters t inner join `status` s on t.status=s.id order by t.id asc";
     						$result = $mysqli->query($query);
     
     			        	//display column headers
@@ -39,16 +39,16 @@
     
     			                  	//Theater ID
     			                  	//theaters::printDot($row['ID']);
-    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-block' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
+    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-sm' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
     
     			                  	//Status
     			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
     			                  	
     			                  	//Movie
-    			                  	echo "<td align='center'>placeholder" . $row['ID'] . "</td>";
+    			                  	echo "<td align = 'center'>" . $row['movie'] . "</td>";
     
     			                  	//Remaining Time
-    			                  	echo "<td align='center'>placeholder" . $row['ID'] . "</td>";
+    			                  	echo "<td align = 'center'>" . $row['remaining_time'] . "</td>";
     				                  	
     			                  	echo "</tr>";
     			            	}
@@ -59,11 +59,10 @@
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-8 ->
-    </div>
+        <!-- /.col-lg-8 -->
     <!-- /.row -->
 </div>
-<script type="text/javascript" charset="utf-8">
+<!-- <script type="text/javascript" charset="utf-8">
 	window.onload = function() {
 	   	$('#theaters').DataTable({
 	   		"columnDefs": [
