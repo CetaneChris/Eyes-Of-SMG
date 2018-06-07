@@ -40,16 +40,16 @@ $times = array();?>
     			                  	echo "<tr>";
 
     			                  	//Theater ID
-    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-sm' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
+    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-block' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
 
     			                  	//Status
-    			                  	echo "<td align = 'center'>" . $row['message'] . "</td>";
+    			                  	echo "<td align = 'center'><p style='font-size:20px'>" . $row['message'] . "</td>";
 
     			                  	//Movie
-    			                  	echo "<td align = 'center'>" . $row['movie'] . "</td>";
+    			                  	echo "<td align = 'center'><p style='font-size:20px'>" . $row['movie'] . "</td>";
 
     			                  	//Remaining Time
-    			                  	echo "<td align = 'center'><div id='est" . $row['ID'] . "'>" . $row['remaining_time'] . "</div></td>";
+    			                  	echo "<td align = 'center'><div id='est" . $row['ID'] . "'><p style='font-size:20px'>" . $row['remaining_time'] . "</div></td>";
 
     			                  	echo "</tr>";
 

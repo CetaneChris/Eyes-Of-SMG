@@ -15,8 +15,3 @@ function startTimer(duration, display) {
             location.reload(1);
     }, 1000);
 }
-function sleep(miliseconds) {
-   var currentTime = new Date().getTime();
-
-   while (currentTime + miliseconds >= new Date().getTime()) {}
-}
