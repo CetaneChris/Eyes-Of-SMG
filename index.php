@@ -53,11 +53,10 @@ $times = array();?>
 
     			                  	echo "</tr>";
 
+    			                  	//Start countdown timer
     			                  	$str_time = preg_replace("/^([\d]{2})\:([\d]{2})\:([\d]{2})$/", "$1:$2:$3", $row["remaining_time"]);
     			                  	sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
     			                  	$time_seconds = $hours * 3600 + $minutes * 60 + $seconds;
-    			                  	
-    			                  	//$time_seconds = $time_seconds - time();
     			                  	array_push($times, array($row["ID"], $time_seconds));
     			            	}
     						?>
@@ -79,9 +78,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php');?>
         <?php foreach ($times as $da) { ?>
                 var time = <?php echo $da[1];?>;
                 var display = document.getElementById('est<?php echo $da[0];?>');
-                //var dg_parent = <?php //if ($da[2]) echo $da[2]; else echo "0";?>;
                 startTimer(time, display);
-    
         <?php } ?>
     };
 </script>
