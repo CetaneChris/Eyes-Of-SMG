@@ -1,7 +1,7 @@
 This program works in two parts, and is currently not functional unless using in a theater with a default video capture device for the PC.
 
 First part -
-  calibrate.py must be run. In order to calibrate, a base image must first be captured (Suggested empty theater. Not doing this will
+  "calibrate.py" must be run. In order to calibrate, a base image must first be captured (Suggested empty theater. Not doing this will
   greatly alter end results). After a base image is captured, the user must then run the calibration program with the base image.
   An example would be "python calibrate.py -f base.png".
   
