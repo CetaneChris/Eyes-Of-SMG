@@ -8,6 +8,7 @@ function startTimer(duration, display) {
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
+        display.style.fontSize = "16px";
         display.textContent = hours + ":" + minutes + ":" + seconds;
         --timer;
 
