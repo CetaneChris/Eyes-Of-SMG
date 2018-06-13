@@ -15,27 +15,14 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <script type="text/javascript" src="./db_connection.js"></script>
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-8 -->
-        <?php /*<div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-calculator fa-fw"></i> Col 4
-                </div>
-                <div class="panel-body">
-                    
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>*/?>
-        <!-- /.col-lg-4 -->
+        <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
 </div>

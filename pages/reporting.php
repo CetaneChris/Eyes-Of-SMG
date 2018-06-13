@@ -12,24 +12,11 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/testing?panelId=2&orgId=1&tab=metrics&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 100%;" height="700" frameborder="3"></iframe>
+                    <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=2&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 100%;" height="700"></iframe>
                 </div>
             </div>
         </div>
         <!-- /.col-lg-8 -->
-        <?php /*<div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-calculator fa-fw"></i> Col 4
-                </div>
-                <div class="panel-body">
-                    
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>*/?>
-        <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
 </div>
@@ -37,13 +24,3 @@
 <?php
 //Standard call for dependencies
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php')?>
-
-<!-- 
-select 
-    t.timestamp,
-    sum(t.has_attention),
-    sum(t.total) from track_eyes t
-	inner join devices d on d.D_ID = t.D_ID
-	where d.THEATER_NUM = 1
-    group by t.TIMESTAMP
- -->
