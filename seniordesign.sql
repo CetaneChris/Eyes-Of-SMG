@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 08, 2018 at 09:57 PM
+-- Generation Time: Jun 18, 2018 at 06:48 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -112,6 +112,7 @@ CREATE TABLE IF NOT EXISTS `track_eyes` (
   `TOTAL` int(11) NOT NULL,
   `TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `OCCUPIED` varchar(10000) NOT NULL,
+  `ATTENTION` varchar(10000) NOT NULL,
   PRIMARY KEY (`TRACK_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
@@ -119,21 +120,21 @@ CREATE TABLE IF NOT EXISTS `track_eyes` (
 -- Dumping data for table `track_eyes`
 --
 
-INSERT INTO `track_eyes` VALUES(1, 1, 1, 1, '2018-05-04 02:00:00', '');
-INSERT INTO `track_eyes` VALUES(3, 1, 3, 3, '2018-05-04 02:10:00', '');
-INSERT INTO `track_eyes` VALUES(2, 1, 2, 3, '2018-05-04 02:05:00', '');
-INSERT INTO `track_eyes` VALUES(4, 1, 5, 5, '2018-05-04 02:15:00', '');
-INSERT INTO `track_eyes` VALUES(5, 1, 4, 5, '2018-05-04 02:20:00', '');
-INSERT INTO `track_eyes` VALUES(6, 1, 6, 6, '2018-05-04 02:25:00', '');
-INSERT INTO `track_eyes` VALUES(7, 1, 5, 6, '2018-05-04 02:30:00', '');
-INSERT INTO `track_eyes` VALUES(8, 1, 5, 6, '2018-05-04 02:35:00', '');
-INSERT INTO `track_eyes` VALUES(9, 1, 6, 8, '2018-05-04 02:40:00', '');
-INSERT INTO `track_eyes` VALUES(10, 1, 7, 8, '2018-05-04 02:45:00', '');
-INSERT INTO `track_eyes` VALUES(11, 1, 5, 8, '2018-05-04 02:50:00', '');
-INSERT INTO `track_eyes` VALUES(12, 1, 5, 8, '2018-05-04 02:55:00', '');
-INSERT INTO `track_eyes` VALUES(13, 1, 7, 8, '2018-05-04 03:00:00', '');
-INSERT INTO `track_eyes` VALUES(14, 2, 1, 1, '2018-05-04 02:35:00', '');
-INSERT INTO `track_eyes` VALUES(15, 2, 1, 1, '2018-05-04 02:40:00', '');
+INSERT INTO `track_eyes` VALUES(1, 1, 1, 1, '2018-05-04 02:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(3, 1, 3, 3, '2018-05-04 02:10:00', '', '');
+INSERT INTO `track_eyes` VALUES(2, 1, 2, 3, '2018-05-04 02:05:00', '', '');
+INSERT INTO `track_eyes` VALUES(4, 1, 5, 5, '2018-05-04 02:15:00', '', '');
+INSERT INTO `track_eyes` VALUES(5, 1, 4, 5, '2018-05-04 02:20:00', '', '');
+INSERT INTO `track_eyes` VALUES(6, 1, 6, 6, '2018-05-04 02:25:00', '', '');
+INSERT INTO `track_eyes` VALUES(7, 1, 5, 6, '2018-05-04 02:30:00', '', '');
+INSERT INTO `track_eyes` VALUES(8, 1, 5, 6, '2018-05-04 02:35:00', '', '');
+INSERT INTO `track_eyes` VALUES(9, 1, 6, 8, '2018-05-04 02:40:00', '', '');
+INSERT INTO `track_eyes` VALUES(10, 1, 7, 8, '2018-05-04 02:45:00', '', '');
+INSERT INTO `track_eyes` VALUES(11, 1, 5, 8, '2018-05-04 02:50:00', '', '');
+INSERT INTO `track_eyes` VALUES(12, 1, 5, 8, '2018-05-04 02:55:00', '', '');
+INSERT INTO `track_eyes` VALUES(13, 1, 7, 8, '2018-05-04 03:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(14, 2, 1, 1, '2018-05-04 02:35:00', '', '');
+INSERT INTO `track_eyes` VALUES(15, 2, 1, 1, '2018-05-04 02:40:00', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
