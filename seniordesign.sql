@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 18, 2018 at 06:48 PM
+-- Generation Time: Jun 18, 2018 at 06:54 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -30,11 +30,12 @@ USE `seniordesign`;
 
 DROP TABLE IF EXISTS `devices`;
 CREATE TABLE IF NOT EXISTS `devices` (
-  `D_ID` int(11) NOT NULL,
-  `THEATER_NUM` int(11) NOT NULL,
-  `LOCATION_ID` int(11) NOT NULL,
+  `D_ID` INT NOT NULL AUTO_INCREMENT,
+  `THEATER_NUM` INT NOT NULL,
+  `LOCATION_ID` INT NOT NULL,
+  PRIMARY KEY (`D_ID`),
   UNIQUE KEY `D_ID` (`D_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `devices`
@@ -51,10 +52,11 @@ INSERT INTO `devices` VALUES(2, 1, 1);
 
 DROP TABLE IF EXISTS `status`;
 CREATE TABLE IF NOT EXISTS `status` (
-  `ID` int(11) NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
   `MESSAGE` varchar(32) NOT NULL,
+  PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `status`
@@ -72,12 +74,13 @@ INSERT INTO `status` VALUES(3, 'Cleaning');
 
 DROP TABLE IF EXISTS `theaters`;
 CREATE TABLE IF NOT EXISTS `theaters` (
-  `ID` int(11) NOT NULL,
-  `STATUS` int(11) NOT NULL,
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `STATUS` INT NOT NULL,
   `MOVIE` varchar(10000) NOT NULL,
   `REMAINING_TIME` time NOT NULL,
+  PRIMARY KEY (`ID`),
   UNIQUE KEY `ID` (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `theaters`
@@ -106,10 +109,10 @@ INSERT INTO `theaters` VALUES(14, 3, 'The Life of the Party', '00:11:25');
 
 DROP TABLE IF EXISTS `track_eyes`;
 CREATE TABLE IF NOT EXISTS `track_eyes` (
-  `TRACK_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `THEATER_NUM` int(11) NOT NULL,
-  `HAS_ATTENTION` int(11) NOT NULL,
-  `TOTAL` int(11) NOT NULL,
+  `TRACK_ID` INT NOT NULL AUTO_INCREMENT,
+  `THEATER_NUM` INT NOT NULL,
+  `HAS_ATTENTION` INT NOT NULL,
+  `TOTAL` INT NOT NULL,
   `TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `OCCUPIED` varchar(10000) NOT NULL,
   `ATTENTION` varchar(10000) NOT NULL,
