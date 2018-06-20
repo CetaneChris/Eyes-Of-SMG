@@ -49,7 +49,7 @@ $times = array();?>
     			                  	echo "<td align = 'center'><p style='font-size:16px'>" . $row['movie'] . "</td>";
 
     			                  	//Remaining Time
-    			                  	echo "<td align = 'center'><div id='est" . $row['ID'] . "'><p style='font-size:16px'>" . $row['remaining_time'] . "</div></td>";
+    			                  	echo "<td align = 'center'><div id='th" . $row['ID'] . "'><p style='font-size:16px'>" . $row['remaining_time'] . "</div></td>";
 
     			                  	echo "</tr>";
 
@@ -77,7 +77,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php');?>
     window.onload = function () {
         <?php foreach ($times as $da) { ?>
                 var time = <?php echo $da[1];?>;
-                var display = document.getElementById('est<?php echo $da[0];?>');
+                var display = document.getElementById('th<?php echo $da[0];?>');
                 startTimer(time, display);
         <?php } ?>
     };

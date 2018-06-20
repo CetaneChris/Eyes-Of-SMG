@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 18, 2018 at 06:54 PM
+-- Generation Time: Jun 20, 2018 at 03:52 AM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `seniordesign` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `seniordesign`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ad_timestamps`
+--
+
+DROP TABLE IF EXISTS `ad_timestamps`;
+CREATE TABLE IF NOT EXISTS `ad_timestamps` (
+  `AD_ID` INT NOT NULL AUTO_INCREMENT,
+  `THEATER_NUM` INT NOT NULL,
+  `AD_COMP` varchar(100) NOT NULL,
+  `AD_TIMESTAMP` time NOT NULL,
+  PRIMARY KEY (`AD_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ad_timestamps`
+--
+
+INSERT INTO `ad_timestamps` VALUES(1, 1, 'Coke', '00:00:00');
+INSERT INTO `ad_timestamps` VALUES(2, 1, 'Pepsi', '00:02:38');
+INSERT INTO `ad_timestamps` VALUES(3, 1, 'Best Buy', '00:04:56');
+INSERT INTO `ad_timestamps` VALUES(4, 1, 'Target', '00:06:18');
+INSERT INTO `ad_timestamps` VALUES(5, 1, 'WARNING', '00:08:00');
 
 -- --------------------------------------------------------
 
@@ -43,6 +68,43 @@ CREATE TABLE IF NOT EXISTS `devices` (
 
 INSERT INTO `devices` VALUES(1, 1, 1);
 INSERT INTO `devices` VALUES(2, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchase_history`
+--
+
+DROP TABLE IF EXISTS `purchase_history`;
+CREATE TABLE IF NOT EXISTS `purchase_history` (
+  `cust_id` INT NOT NULL AUTO_INCREMENT,
+  `cust_name` text NOT NULL,
+  `purchase_type` varchar(20) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`cust_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seat_history`
+--
+
+DROP TABLE IF EXISTS `seat_history`;
+CREATE TABLE IF NOT EXISTS `seat_history` (
+  `entry_id` INT NOT NULL AUTO_INCREMENT,
+  `cust_id` INT NOT NULL,
+  `seat_num` varchar(5) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`entry_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `seat_history`
+--
+
+INSERT INTO `seat_history` VALUES(1, 1, 'A1', '2018-05-04');
+INSERT INTO `seat_history` VALUES(2, 1, 'C2', '2018-05-04');
 
 -- --------------------------------------------------------
 

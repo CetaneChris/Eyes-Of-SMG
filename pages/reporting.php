@@ -9,7 +9,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=2&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 100%;" height="700"></iframe>
@@ -17,6 +17,44 @@
             </div>
         </div>
         <!-- /.col-lg-8 -->
+        <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-calculator fa-fw"></i> Ad Timestamps
+                </div>
+                <div class="panel-body">
+                    <table id="theaters" class="table table-striped table-bordered"><?php
+                        $query = "select ad_comp, ad_timestamp from ad_timestamps where theater_num = " . $_POST['theater_number'];
+						$result = $mysqli->query($query);
+
+			        	//display column headers
+			            echo "<thead>";
+				        	echo "<th style='text-align:center' width='40%'>Ad</th>";
+				        	echo "<th style='text-align:center' width='60%'>Timestamp</th>";
+	       				echo "</thead>";
+
+			            //display the data
+			            echo "<tbody>";
+			            	while($row = mysqli_fetch_array($result)){
+			                  	echo "<tr>";
+
+			                  	//Theater ID
+			                  	echo "<td align = 'center'>" . $row['ad_comp'] . "</td>";
+
+			                  	//Status
+			                  	echo "<td align = 'center'>" . $row['ad_timestamp'] . "</td>";
+
+                                echo "</tr>";
+			            	}
+						?>
+			            </tbody>
+					</table>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
 </div>
