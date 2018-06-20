@@ -20,7 +20,7 @@
         <div class="col-lg-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-calculator fa-fw"></i> Ad Timestamps
+                    <i class="far fa-clock fa-fw"></i> Ad Timestamps
                 </div>
                 <div class="panel-body">
                     <table id="theaters" class="table table-striped table-bordered"><?php
@@ -57,6 +57,14 @@
         <!-- /.col-lg-4 -->
     </div>
     <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=8&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 25%;" height="200"></iframe>
+        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=9&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24%;" height="200" frameborder="0"></iframe>
+        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=10&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24%;" height="200" frameborder="0"></iframe>
+        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=11&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 25%;" height="200" frameborder="0"></iframe>
+        </div>
+    </div>
 </div>
 <!-- /#page-wrapper -->
 <?php
