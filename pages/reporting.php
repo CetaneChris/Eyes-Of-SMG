@@ -59,9 +59,9 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=8&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="200" frameborder="0"></iframe>
-        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=9&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="200" frameborder="0"></iframe>
-        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=10&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="200" frameborder="0"></iframe>
+        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=8&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="350" frameborder="0"></iframe>
+        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=9&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="300" frameborder="0"></iframe>
+        	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=10&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="250" frameborder="0"></iframe>
         	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=11&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="200" frameborder="0"></iframe>
         </div>
     </div>
