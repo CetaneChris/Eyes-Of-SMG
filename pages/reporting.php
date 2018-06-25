@@ -54,6 +54,48 @@
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="far fa-clock fa-fw"></i> Custom Times
+                </div>
+                <form name="newtimes" method="POST"  action="/pages/reporting.php" onsubmit="return validateForm();">
+						<table class="table table-striped">
+							<tr>
+								<td>Starting</td>
+								<td>
+									<div class='input-group date' id='starting' name='ending'>
+					                    <input type='text' class="form-control" />
+						                    <span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					                    </span>
+					                </div>
+								</td>
+							</tr>
+							<tr>
+								<td>Ending</td>
+								<td>
+									<div class='input-group date' id='ending' name='ending'>
+					                    <input type='text' class="form-control" />
+						                    <span class="input-group-addon">
+					                        <span class="glyphicon glyphicon-calendar"></span>
+					                    </span>
+					                </div>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="hidden" id="theater_number" name="theater_number" value="<?php echo $_POST['theater_number']?>"></td>
+								<td><input class="btn btn-primary" type="reset" value="Reset"><input class="btn btn-primary pull-right" type="submit" value="Submit"></td>
+							</tr>
+						</table>
+					</form>
+                <!-- /.panel-body -->
+                <script type="text/javascript">
+					$(function () {
+						$('#datetimepicker1').datetimepicker();
+					});
+                </script>
+            </div>
+            <!-- /.panel -->
         </div>
         <!-- /.col-lg-2 -->
     </div>
@@ -117,6 +159,26 @@
     <?php }?>
 </div>
 <!-- /#page-wrapper -->
+<script type="text/javascript">
+    function validateForm(){
+    	var D1_ID       = document.getElementById("D1_ID").value;
+    	var D2_ID       = document.getElementById("D2_ID").value;
+    	var LOC_ID      = document.getElementById("LOC_ID").value;
+    	var theater_num = document.getElementById("theater_num").value;
+    	    
+    	if(D1_ID == "" || D2_ID == "" || LOC_ID == "" || theater_num == ""){
+    		document.getElementById('errordiv').style.display = 'block';
+    		document.getElementById("errormessage").innerHTML = "All fields are required";
+
+    		return false;
+    	}else if(D1_ID == D2_ID){
+    		document.getElementById('errordiv').style.display = 'block';
+    		document.getElementById("errormessage").innerHTML = "Device IDs match";
+
+    		return false;
+    	}
+    }
+</script>
 <?php
 //Standard call for dependencies
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php')?>
