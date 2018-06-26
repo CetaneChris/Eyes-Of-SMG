@@ -1,3 +1,6 @@
+!!!OUT OF DATE README!!!
+
+
 This program works in two parts, and is currently not functional unless using in a theater with a default video capture device for the PC.
 
 First part -
