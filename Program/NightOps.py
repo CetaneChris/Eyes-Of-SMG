@@ -95,7 +95,7 @@ def main():
 		# Read the current frame
 		while imgNotFound:
 			try:
-				k = cv2.waitKey(30) & 0xff
+				k = cv2.waitKey(10) & 0xff
 				ret, frame = cap.read()
 				if ret:
 					#cv2.imshow("NightOps", frame)
@@ -139,7 +139,7 @@ def main():
 			# If not picking up on someone in seat, decrease threshold
 			# If selection is too sensitive, increase threshold
 			# Threshold is currently .85
-			if score < .6:
+			if score < .75:
 				activeSeats.append(seatNum[i])
 		
 		# Printing Indices 0
