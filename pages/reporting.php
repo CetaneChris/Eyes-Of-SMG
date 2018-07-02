@@ -8,6 +8,11 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+    <?php if("" == trim($_POST['starting'])){?>
+    <div class="col-lg-12">
+		<h3 align="center">Most Recent Three Hours</h3>
+	</div>
+    <?php }?>
     <?php if($_POST['theater_number'] % 2 != 0){?>
     <div class="row">
         <div class="col-lg-10">

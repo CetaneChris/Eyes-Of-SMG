@@ -22,7 +22,8 @@ def main():
 	print("When finished, enter 'done' to close the program.")
 
 	# Opening default video recording device, returns -1 if not found
-	cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
+	#cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
+	cap = cv2.VideoCapture(0)
 	if not cap.isOpened():
 		print("Did not access device!")
 		return -1

@@ -1,7 +1,10 @@
 import numpy as np
 import cv2
 
-cap = cv2.VideoCapture('rtsp://admin:123456@192.168.0.29/stream0')
+#cap = cv2.VideoCapture('rtsp://admin:123456@192.168.0.29/stream0')
+
+cap = cv2.VideoCapture(0)
+
 #fgbg = cv2.createBackgroundSubtractorMOG2()
 
 img_counter = 0
