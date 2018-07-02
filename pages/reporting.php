@@ -68,7 +68,7 @@
 							<tr>
 								<td>Starting</td>
 								<td>
-									<div class='input-group date' id='starting' name='ending'>
+									<div class='input-group date' id='starting' name='starting'>
 					                    <input type='text' class="form-control" />
 						                    <span class="input-group-addon">
 					                        <span class="glyphicon glyphicon-calendar"></span>
