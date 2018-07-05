@@ -18,7 +18,8 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <script type="text/javascript" src="./db_connection.js"></script>
+                	<?php exec("node myscript.js &", $output);?>
+                    <!-- <iframe src="db_connection.js"></iframe> -->
                 </div>
             </div>
         </div>

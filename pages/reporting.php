@@ -184,6 +184,7 @@
 						echo "<td align = 'center'>Ad</td>";
 						while($row = mysqli_fetch_array($result)){
 						    //Ad company
+						    echo "while!!";
 						    echo "<td align = 'center'>" . $row['ad_comp'] . "</td>";
 						}
 						echo "</tr>";
