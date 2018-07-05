@@ -5,7 +5,7 @@
  */
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
 ?>
-<title>Reporting</title>
+<title>JS Reporting</title>
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
