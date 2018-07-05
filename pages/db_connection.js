@@ -15,7 +15,7 @@ function getMySQLConnection() {
 
 app.set('view engine', 'pug');
 
-app.get('/', function(req,res) {
+app.get('/pages/js_reporting.php', function(req,res) {
     var list = [];
 
     var connection = getMySQLConnection();
@@ -46,6 +46,6 @@ app.get('/', function(req,res) {
 connection.end();
 });
 
-app.listen(8080, function() {
-    console.log('listening on port', 8080);
+app.listen(8081, function() {
+    console.log('listening on port', 8081);
 });
