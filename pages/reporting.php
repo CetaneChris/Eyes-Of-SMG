@@ -8,12 +8,12 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+    <?php if($_POST['theater_number'] == 1){?>
     <?php if("" == trim($_POST['starting'])){?>
-    <div class="col-lg-12">
+    <div class="col-lg-10">
 		<h3 align="center">Most Recent Three Hours</h3>
 	</div>
     <?php }?>
-    <?php if($_POST['theater_number'] % 2 != 0){?>
     <div class="row">
         <div class="col-lg-10">
             <div class="panel panel-default">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <!-- /.col-lg-8 -->
+        <!-- /.col-lg-10 -->
         <div class="col-lg-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -113,7 +113,7 @@
         	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=11&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="250" frameborder="0"></iframe>
         </div>
     </div>
-    <?php }else{?>
+    <?php }elseif($_POST['theater_number'] == 2){?>
     <div class="row">
         <div class="col-lg-10">
             <div class="panel panel-default">
@@ -128,7 +128,7 @@
                     <i class="far fa-clock fa-fw"></i> Ad Timestamps
                 </div>
                 <div class="panel-body">
-                    <table id="theaters" class="table table-striped table-bordered"><?php
+                    <table id="ads" class="table table-striped table-bordered"><?php
                         $query = "select ad_comp, ad_timestamp from ad_timestamps where theater_num = " . $_POST['theater_number'];
 						$result = $mysqli->query($query);
 
@@ -160,6 +160,49 @@
             <!-- /.panel -->
         </div>
         <!-- /.col-lg-2 -->
+    </div>
+    <?php }else{?>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <iframe src="http://192.241.135.75:3000/d/Y68s4yMmk/primary-display?orgId=1&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 100%;" height="900"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="far fa-clock fa-fw"></i> Ad Timestamps
+                </div>
+                <div class="panel-body">
+                    <table id="ads2" class="table table-striped table-bordered"><?php
+                        $query = "select ad_comp, ad_timestamp from ad_timestamps where theater_num = " . $_POST['theater_number'];
+						$result = $mysqli->query($query);
+
+						echo "<tr>";
+						echo "<td align = 'center'>Ad</td>";
+						while($row = mysqli_fetch_array($result)){
+						    //Ad company
+						    echo "<td align = 'center'>" . $row['ad_comp'] . "</td>";
+						}
+						echo "</tr>";
+
+						/*echo "<tr>";
+						echo "<td align = 'center'>Timestamp</td>";
+						while($row = mysqli_fetch_array($result)){
+						    //Timestamp
+						    echo "<td align = 'center'>" . $row['ad_timestamp'] . "</td>";
+						}
+						echo "</tr>";*/
+						?>
+					</table>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
     </div>
     <?php }?>
 </div>
