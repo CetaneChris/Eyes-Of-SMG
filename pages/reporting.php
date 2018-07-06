@@ -181,12 +181,12 @@
 						$result = $mysqli->query($query);
 
 						echo "<tr>";
-						echo "<td align = 'center'>Ad</td>";
-						while($row = mysqli_fetch_array($result)){
-						    //Ad company
-						    echo "while!!";
-						    echo "<td align = 'center'>" . $row['ad_comp'] . "</td>";
-						}
+    						echo "<th align = 'center'>Ad</th>";
+    						while($row = mysqli_fetch_array($result)){
+    						    //Ad company
+    						    //echo "while!!";
+    						    echo "<th align = 'center'>" . $row['ad_comp'] . "</th>";
+    						}
 						echo "</tr>";
 
 						/*echo "<tr>";
