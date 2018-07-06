@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 25, 2018 at 04:24 PM
+-- Generation Time: Jul 06, 2018 at 03:03 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `ad_timestamps` (
   `AD_COMP` varchar(100) NOT NULL,
   `AD_TIMESTAMP` time NOT NULL,
   PRIMARY KEY (`AD_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ad_timestamps`
@@ -51,6 +51,11 @@ INSERT INTO `ad_timestamps` VALUES(7, 2, 'Pepsi', '00:02:38');
 INSERT INTO `ad_timestamps` VALUES(8, 2, 'Best Buy', '00:04:56');
 INSERT INTO `ad_timestamps` VALUES(9, 2, 'Target', '00:06:18');
 INSERT INTO `ad_timestamps` VALUES(10, 2, 'WARNING', '00:08:00');
+INSERT INTO `ad_timestamps` VALUES(11, 3, 'Coke', '00:00:00');
+INSERT INTO `ad_timestamps` VALUES(12, 3, 'Pepsi', '00:02:38');
+INSERT INTO `ad_timestamps` VALUES(13, 3, 'Best Buy', '00:04:56');
+INSERT INTO `ad_timestamps` VALUES(14, 3, 'Target', '00:06:18');
+INSERT INTO `ad_timestamps` VALUES(15, 3, 'WARNING', '00:08:00');
 
 -- --------------------------------------------------------
 
@@ -102,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `purchase_history` (
   `item` varchar(100) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`trans_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `purchase_history`
@@ -115,13 +120,28 @@ INSERT INTO `purchase_history` VALUES(4, 1, 2, 'BEVERAGE', 'COKE', '2018-05-04 0
 INSERT INTO `purchase_history` VALUES(5, 1, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
 INSERT INTO `purchase_history` VALUES(6, 1, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
 INSERT INTO `purchase_history` VALUES(7, 1, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(8, 2, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
-INSERT INTO `purchase_history` VALUES(9, 2, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
-INSERT INTO `purchase_history` VALUES(10, 2, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
-INSERT INTO `purchase_history` VALUES(11, 2, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
-INSERT INTO `purchase_history` VALUES(12, 2, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
-INSERT INTO `purchase_history` VALUES(13, 2, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(14, 2, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
+INSERT INTO `purchase_history` VALUES(8, 1, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
+INSERT INTO `purchase_history` VALUES(9, 1, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
+INSERT INTO `purchase_history` VALUES(10, 1, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
+INSERT INTO `purchase_history` VALUES(11, 1, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
+INSERT INTO `purchase_history` VALUES(12, 1, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
+INSERT INTO `purchase_history` VALUES(13, 1, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
+INSERT INTO `purchase_history` VALUES(14, 1, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
+INSERT INTO `purchase_history` VALUES(15, 1, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
+INSERT INTO `purchase_history` VALUES(16, 1, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
+INSERT INTO `purchase_history` VALUES(17, 1, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
+INSERT INTO `purchase_history` VALUES(18, 1, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
+INSERT INTO `purchase_history` VALUES(19, 1, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
+INSERT INTO `purchase_history` VALUES(20, 1, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
+INSERT INTO `purchase_history` VALUES(21, 1, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
+INSERT INTO `purchase_history` VALUES(22, 1, 1, 'SIDE', 'PRETZEL', '2018-05-04 02:33:00');
+INSERT INTO `purchase_history` VALUES(23, 3, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
+INSERT INTO `purchase_history` VALUES(24, 3, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
+INSERT INTO `purchase_history` VALUES(25, 3, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
+INSERT INTO `purchase_history` VALUES(26, 3, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
+INSERT INTO `purchase_history` VALUES(27, 3, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
+INSERT INTO `purchase_history` VALUES(28, 3, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
+INSERT INTO `purchase_history` VALUES(29, 3, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
 
 -- --------------------------------------------------------
 
@@ -218,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `track_eyes` (
   `OCCUPIED` varchar(10000) NOT NULL,
   `ATTENTION` varchar(10000) NOT NULL,
   PRIMARY KEY (`TRACK_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `track_eyes`
@@ -250,6 +270,19 @@ INSERT INTO `track_eyes` VALUES(23, 2, 7, 8, '2018-05-04 02:45:00', '', '');
 INSERT INTO `track_eyes` VALUES(24, 2, 5, 8, '2018-05-04 02:50:00', '', '');
 INSERT INTO `track_eyes` VALUES(25, 2, 5, 8, '2018-05-04 02:55:00', '', '');
 INSERT INTO `track_eyes` VALUES(26, 2, 7, 8, '2018-05-04 03:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(27, 3, 2, 3, '2018-05-04 02:05:00', '', '');
+INSERT INTO `track_eyes` VALUES(28, 3, 1, 1, '2018-05-04 02:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(29, 3, 3, 3, '2018-05-04 02:10:00', '', '');
+INSERT INTO `track_eyes` VALUES(30, 3, 5, 5, '2018-05-04 02:15:00', '', '');
+INSERT INTO `track_eyes` VALUES(31, 3, 4, 5, '2018-05-04 02:20:00', '', '');
+INSERT INTO `track_eyes` VALUES(32, 3, 6, 6, '2018-05-04 02:25:00', '', '');
+INSERT INTO `track_eyes` VALUES(33, 3, 5, 6, '2018-05-04 02:30:00', '', '');
+INSERT INTO `track_eyes` VALUES(34, 3, 5, 6, '2018-05-04 02:35:00', '', '');
+INSERT INTO `track_eyes` VALUES(35, 3, 6, 8, '2018-05-04 02:40:00', '', '');
+INSERT INTO `track_eyes` VALUES(36, 3, 7, 8, '2018-05-04 02:45:00', '', '');
+INSERT INTO `track_eyes` VALUES(37, 3, 5, 8, '2018-05-04 02:50:00', '', '');
+INSERT INTO `track_eyes` VALUES(38, 3, 5, 8, '2018-05-04 02:55:00', '', '');
+INSERT INTO `track_eyes` VALUES(39, 3, 7, 8, '2018-05-04 03:00:00', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
