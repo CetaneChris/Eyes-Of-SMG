@@ -143,14 +143,14 @@ def main():
 				activeSeats.append(seatNum[i])
 		
 		# Printing Indices 0
-		if len(activeSeats) >= 1:
-			print("{}".format(activeSeats[0]), end = "")
+		#if len(activeSeats) >= 1:
+			#print("{}".format(activeSeats[0]), end = "")
 		
 		# Printing indices greater than 0
-		for i in activeSeats[1:]:
-			print(",{}".format(i))
+		#for i in activeSeats[1:]:
+			#print(",{}".format(i))
 		
-		print("")
+		print(activeSeats)
 		#Showing image captured
 		cv2.imshow("Capture",frame)
 		
