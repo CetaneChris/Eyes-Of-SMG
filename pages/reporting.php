@@ -8,12 +8,12 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-    <?php if($_POST['theater_number'] == 1){?>
-    <?php if("" == trim($_POST['starting'])){?>
-    <div class="col-lg-10">
-		<h3 align="center">Most Recent Three Hours</h3>
-	</div>
-    <?php }?>
+    <?php if(trim($_POST['theater_number']) == 1){?>
+	    <?php if("" == trim($_POST['starting'])){?>
+	    <div class="col-lg-10">
+			<h3 align="center">Most Recent Three Hours</h3>
+		</div>
+	    <?php }?>
     <div class="row">
         <div class="col-lg-10">
             <div class="panel panel-default">
@@ -64,41 +64,41 @@
                     <i class="far fa-clock fa-fw"></i> Custom Times
                 </div>
                 <form name="newtimes" method="POST"  action="/pages/reporting.php" onsubmit="return validateForm();">
-						<table class="table table-striped">
-							<tr>
-								<td>Starting</td>
-								<td>
-									<div class='input-group date' id='starting' name='starting'>
-					                    <input type='text' class="form-control" />
-						                    <span class="input-group-addon">
-					                        <span class="glyphicon glyphicon-calendar"></span>
-					                    </span>
-					                </div>
-								</td>
-							</tr>
-							<tr>
-								<td>Ending</td>
-								<td>
-									<div class='input-group date' id='ending' name='ending'>
-					                    <input type='text' class="form-control" />
-						                    <span class="input-group-addon">
-					                        <span class="glyphicon glyphicon-calendar"></span>
-					                    </span>
-					                </div>
-								</td>
-							</tr>
-							<tr>
-								<td><input type="hidden" id="theater_number" name="theater_number" value="<?php echo $_POST['theater_number']?>"></td>
-								<td><input class="btn btn-primary" type="reset" value="Reset"><input class="btn btn-primary pull-right" type="submit" value="Submit"></td>
-							</tr>
-						</table>
-					</form>
+					<table class="table table-striped">
+						<tr>
+							<td>Starting</td>
+							<td>
+								<div class='input-group date' id='starting' name='starting'>
+				                    <input type='text' class="form-control" />
+					                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+				                </div>
+							</td>
+						</tr>
+						<tr>
+							<td>Ending</td>
+							<td>
+								<div class='input-group date' id='ending' name='ending'>
+				                    <input type='text' class="form-control" />
+					                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+				                </div>
+							</td>
+						</tr>
+						<tr>
+							<td><input type="hidden" id="theater_number" name="theater_number" value="<?php echo $_POST['theater_number']?>"></td>
+							<td><input class="btn btn-primary" type="reset" value="Reset"><input class="btn btn-primary pull-right" type="submit" value="Submit"></td>
+						</tr>
+					</table>
+				</form>
                 <!-- /.panel-body -->
-                <script type="text/javascript">
+                <!-- <script type="text/javascript">
 					$(function () {
 						$('#datetimepicker1').datetimepicker();
 					});
-                </script>
+                </script> -->
             </div>
             <!-- /.panel -->
         </div>
@@ -113,7 +113,7 @@
         	<iframe src="http://192.241.135.75:3000/d-solo/Y68s4yMmk/primary-display?orgId=1&panelId=11&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 24.5%;" height="250" frameborder="0"></iframe>
         </div>
     </div>
-    <?php }elseif($_POST['theater_number'] == 2){?>
+    <?php }elseif(trim($_POST['theater_number']) == 2){?>
     <div class="row">
         <div class="col-lg-10">
             <div class="panel panel-default">
@@ -208,7 +208,7 @@
     <?php }?>
 </div>
 <!-- /#page-wrapper -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function validateForm(){
     	var D1_ID       = document.getElementById("D1_ID").value;
     	var D2_ID       = document.getElementById("D2_ID").value;
@@ -227,7 +227,7 @@
     		return false;
     	}
     }
-</script>
+</script> -->
 <?php
 //Standard call for dependencies
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php')?>
