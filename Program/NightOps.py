@@ -4,6 +4,7 @@ import imutils
 import cv2
 import numpy as np
 import sys
+import mysql.connector
 
 # Simply parses the Calibration.txt file and returns relevant info
 def coordinates(string):
@@ -48,6 +49,10 @@ def main():
 		help="first input image")
 	args = vars(ap.parse_args())
 	
+	cnx = mysql.connector.connect(user='scott', password='password',
+                              host='127.0.0.1',
+                              database='employees')
+	
 	# Opening video source, currently the reason code will not work
 	# (Zero is accessing computer's default video source, such as webcam)
 	cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
@@ -60,6 +65,7 @@ def main():
 	
 	with open('Calibration.txt') as f:
 		seatList = f.readlines()
+		
 	seatList = [x.strip() for x in seatList] #Removes new line character
 	
 	# Reading base image
@@ -161,6 +167,10 @@ def main():
 		if k%256 == 27:
 			# ESC pressed
 			print("Escape hit, closing...")
+			cnx.close()
+			cap.release()
+			cv2.destroyAllWindows()
+			f.close()
 			break
 		
 		if k%256 == 32:
