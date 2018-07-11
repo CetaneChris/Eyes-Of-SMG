@@ -2,7 +2,6 @@
 	Home page
  -->
 <?php include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
-$_SESSION['type'] = "home";
 $times = array();?>
 <title>Eyes of SMG Home</title>
 <div id="page-wrapper">
@@ -40,7 +39,7 @@ $times = array();?>
     			                  	echo "<tr>";
 
     			                  	//Theater ID
-    			                  	echo "<td align = 'center'><input type='hidden' id='starting' name='starting' value=''><input type='submit' class='btn btn-block' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
+    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-block' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
 
     			                  	//Status
     			                  	echo "<td align = 'center'><p style='font-size:16px'>" . $row['message'] . "</td>";
