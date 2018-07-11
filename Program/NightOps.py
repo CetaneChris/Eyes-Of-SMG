@@ -49,9 +49,9 @@ def main():
 		help="first input image")
 	args = vars(ap.parse_args())
 	
-	cnx = mysql.connector.connect(user='scott', password='password',
-                              host='127.0.0.1',
-                              database='employees')
+	cnx = mysql.connector.connect(user='SeniorDesign', password='SeniorDesign',
+                              host='192.241.135.75',
+                              database='seniordesign')
 	
 	# Opening video source, currently the reason code will not work
 	# (Zero is accessing computer's default video source, such as webcam)
@@ -177,6 +177,7 @@ def main():
 			#Space pressed
 			showSeats = not showSeats
 			print("Show Seats: {}".format(showSeats))
+			
 			
 	
 
