@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import sys
 import mysql.connector
+import time
 
 # Simply parses the Calibration.txt file and returns relevant info
 def coordinates(string):
@@ -41,6 +42,17 @@ def grab_frame():
 	
 	return frame
 	
+def stringGen(activeSeats,seatList):
+	list = []
+	
+	for i in seatList:
+		if i in activeSeats:
+			list.append('PRESENT')
+		else:
+			list.append('EMPTY')
+			
+	return list
+	
 
 def main():
 	# Ensures there is one argument fed into program
@@ -49,13 +61,20 @@ def main():
 		help="first input image")
 	args = vars(ap.parse_args())
 	
-	cnx = mysql.connector.connect(user='SeniorDesign', password='SeniorDesign',
-                              host='192.241.135.75',
-                              database='seniordesign')
+	try:
+		cnx = mysql.connector.connect(user='SeniorDesign', password='SeniorDesign',
+								  host='192.241.135.75',
+								  port
+								  database='seniordesign')
+		cursor = cnx.cursor()
+		
+	except mysql.connector.Error as err:
+		print("AN ERROR HAS OCCURRED -")
+		print(err)
 	
 	# Opening video source, currently the reason code will not work
 	# (Zero is accessing computer's default video source, such as webcam)
-	cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
+	cap = cv2.VideoCapture(0)
 	if not cap.isOpened():
 			sys.exit("Couldn't capture video source!")
 
@@ -95,6 +114,8 @@ def main():
 	#Set seat visibility
 	showSeats = False
 	imgNotFound = True #Currently needing to implement the try catch in calibrate.py
+	
+	clock = 0
 	
 	# Looping through for each seat
 	while True:
@@ -144,7 +165,6 @@ def main():
 			# Deciding factor as to whether or not a seat is occupied
 			# If not picking up on someone in seat, decrease threshold
 			# If selection is too sensitive, increase threshold
-			# Threshold is currently .85
 			if score < .75:
 				activeSeats.append(seatNum[i])
 		
@@ -156,9 +176,22 @@ def main():
 		#for i in activeSeats[1:]:
 			#print(",{}".format(i))
 		
-		print(activeSeats)
+		#print(activeSeats)
 		#Showing image captured
 		cv2.imshow("Capture",frame)
+		
+		list = stringGen(activeSeats,seatList)
+		
+		if time.perf_counter() - clock > 5:
+			clock += 5
+			print("Sending seats: {}".format(activeSeats))
+			dataFormat = ("INSERT INTO track_eyes "
+               "(NULL, theater_num, has_attention, total, NULL, A1_status, A2_status, A3_status, A4_status, A5_status, B1_status, B2_status, B3_status, B4_status, B5_status) "
+               "VALUES (NULL, %d, %d, %d, NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+			
+			data = (1,0,len(activeSeats),list[0],list[1],list[2],list[3],list[4],list[5],list[6],list[7],list[8],list[9])
+			
+			cursor.execute(dataFormat,data)
 		
 		# Returns pressed key during wait, which is 1 second(s)
 		k = cv2.waitKey(1)
