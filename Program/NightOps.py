@@ -64,7 +64,7 @@ def main():
 	try:
 		cnx = mysql.connector.connect(user='SeniorDesign', password='SeniorDesign',
 								  host='192.241.135.75',
-								  port
+								  port = 3306,
 								  database='seniordesign')
 		cursor = cnx.cursor()
 		
