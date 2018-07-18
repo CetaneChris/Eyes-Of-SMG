@@ -37,8 +37,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');?>
 			<div class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/index.php"><i class="fa fa-building fa-fw"></i> Home</a></li>
-					<li><a href="/pages/newDevice.php"><i class="fas fa-video fa-fw"></i> Admin</a></li>
-					<li><a href="/pages/js_reporting.php"><i class="fas fa-chart-line fa-fw"></i> NodeJS</a></li>
+					<!-- <li><a href="/pages/newDevice.php"><i class="fas fa-video fa-fw"></i> Admin</a></li> -->
 	            </ul>
 	        </div>
             <!-- /.navbar-top-links -->
