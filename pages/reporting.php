@@ -52,9 +52,10 @@
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
-            <form name="homepage" method="POST" action="/pages/realtime.php"></form>
+            <form name="homepage" method="POST" action="/pages/realtime.php">
 	            <div class="panel panel-default">
-					<input type='submit' class='btn btn-block btn-outline btn-primary' style='white-space: normal;' id='theater_num' name='theater_num' value='For a real time view into the theater, and occupancy information. Click here.'>
+	            	<input type='hidden' id='theater_num' name='theater_num' value=<?php echo $_POST['theater_number']?>>
+					<input type='submit' class='btn btn-block btn-outline btn-secondary' style='white-space: normal;' value='For a real time view into the theater, and occupancy information. Click here.'>
 	            </div>
             </form>
             <!-- /.panel -->
