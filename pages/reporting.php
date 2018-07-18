@@ -52,6 +52,12 @@
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
+            <form name="homepage" method="POST" action="/pages/realtime.php"></form>
+	            <div class="panel panel-default">
+					<input type='submit' class='btn btn-block btn-outline btn-primary' style='white-space: normal;' id='theater_num' name='theater_num' value='For a real time view into the theater, and occupancy information. Click here.'>
+	            </div>
+            </form>
+            <!-- /.panel -->
         </div>
         <!-- /.col-lg-2 -->
     </div>
