@@ -55,7 +55,7 @@
             <form name="homepage" method="POST" action="/pages/realtime.php">
 	            <div class="panel panel-default">
 	            	<input type='hidden' id='theater_num' name='theater_num' value=<?php echo $_POST['theater_number']?>>
-					<input type='submit' class='btn btn-block btn-outline btn-secondary' style='white-space: normal;' value='For a real time view into the theater, and occupancy information. Click here.'>
+					<input type='submit' class='btn btn-block btn-outline-secondary' style='white-space: normal;' value='For a real time view into the theater, and occupancy information. Click here.'></input>
 	            </div>
             </form>
             <!-- /.panel -->
@@ -64,26 +64,6 @@
     </div>
 </div>
 <!-- /#page-wrapper -->
-<!-- <script type="text/javascript">
-    function validateForm(){
-    	var D1_ID       = document.getElementById("D1_ID").value;
-    	var D2_ID       = document.getElementById("D2_ID").value;
-    	var LOC_ID      = document.getElementById("LOC_ID").value;
-    	var theater_num = document.getElementById("theater_num").value;
-    	    
-    	if(D1_ID == "" || D2_ID == "" || LOC_ID == "" || theater_num == ""){
-    		document.getElementById('errordiv').style.display = 'block';
-    		document.getElementById("errormessage").innerHTML = "All fields are required";
-
-    		return false;
-    	}else if(D1_ID == D2_ID){
-    		document.getElementById('errordiv').style.display = 'block';
-    		document.getElementById("errormessage").innerHTML = "Device IDs match";
-
-    		return false;
-    	}
-    }
-</script> -->
 <?php
 //Standard call for dependencies
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php')?>
