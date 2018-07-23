@@ -12,7 +12,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<i class="fa fa-ticket fa-fw"></i> Live Feed
+					<i class="fas fa-video fa-fw"></i> Live Feed
 				</div>
 				<div class="panel-body">
 					<iframe src="https://giphy.com/embed/EOpZ7XsVfTN2E" style="width: 100%" height="242" frameBorder="0"></iframe>
@@ -25,10 +25,11 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-calculator fa-fw"></i> Occupancy Data
+                    <i class="fas fa-eye fa-fw"></i> Occupancy Data
                 </div>
                 <div class="panel-body">
-                    <iframe src="http://192.241.135.75:3000/d-solo/tnFgywdmz/real-time-data?orgId=1&panelId=2&var-theater_number=<?php echo $_POST['theater_num']?>" height="450" style="width: 100%;" frameborder="0"></iframe>
+                    <!--<iframe src="http://192.241.135.75:3000/d-solo/tnFgywdmz/real-time-data?orgId=1&panelId=2&var-theater_number=<?php //echo $_POST['theater_num']?>" height="450" style="width: 100%;" frameborder="0"></iframe>-->
+                    <img src="/images/image.png" alt="Status Dot" height="450" style="width: 100%;">
                 </div>
                 <!-- /.panel-body -->
             </div>
