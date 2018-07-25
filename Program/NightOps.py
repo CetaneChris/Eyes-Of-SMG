@@ -6,6 +6,7 @@ import numpy as np
 import sys
 import mysql.connector
 import time
+import datetime
 
 # Simply parses the Calibration.txt file and returns relevant info
 def coordinates(string):
@@ -27,29 +28,20 @@ def coordinates(string):
 	else:
 		sys.exit("Error with size of nameCoord!{}".format(nameCoord))
 		
-def grab_frame():
-	cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
-	
-	if not cap.isOpened():
-			sys.exit("Couldn't capture video source!")
-			
-	ret, frame = cap.read()
-	
-	while not ret:
-		ret, frame = cap.read()
-	
-	cap.release()
-	
-	return frame
-	
-def stringGen(activeSeats,seatList):
+
+def seatAttend(activeSeats,seatList):
 	list = []
+	
+	#print(seatList)
+	#print(activeSeats)
 	
 	for i in seatList:
 		if i in activeSeats:
-			list.append('PRESENT')
+			list.append('PRESENT') #present
+			#print("{} is present!".format(i))
 		else:
-			list.append('EMPTY')
+			list.append('EMPTY') #empty
+			#print("{} is empty!".format(i))
 			
 	return list
 	
@@ -64,7 +56,7 @@ def main():
 	try:
 		cnx = mysql.connector.connect(user='SeniorDesign', password='SeniorDesign',
 								  host='192.241.135.75',
-								  port = 3306,
+								  port = '3306',
 								  database='seniordesign')
 		cursor = cnx.cursor()
 		
@@ -180,16 +172,16 @@ def main():
 		#Showing image captured
 		cv2.imshow("Capture",frame)
 		
-		list = stringGen(activeSeats,seatList)
+		list = seatAttend(activeSeats,seatNum)
 		
 		if time.perf_counter() - clock > 5:
 			clock += 5
 			print("Sending seats: {}".format(activeSeats))
 			dataFormat = ("INSERT INTO track_eyes "
-               "(NULL, theater_num, has_attention, total, NULL, A1_status, A2_status, A3_status, A4_status, A5_status, B1_status, B2_status, B3_status, B4_status, B5_status) "
-               "VALUES (NULL, %d, %d, %d, NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+               "(TRACK_ID, THEATER_NUM, HAS_ATTENTION, TOTAL, TIMESTAMP, A1, A2, A3, A4, A5, B1, B2, B3, B4, B5) "
+               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
 			
-			data = (1,0,len(activeSeats),list[0],list[1],list[2],list[3],list[4],list[5],list[6],list[7],list[8],list[9])
+			data = (0, 1,0,len(activeSeats),datetime.datetime.now(), list[0],list[1],list[2],list[3],list[4],list[5],list[6],list[7],list[8],list[9])
 			
 			cursor.execute(dataFormat,data)
 		
