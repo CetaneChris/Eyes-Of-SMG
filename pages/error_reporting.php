@@ -16,14 +16,14 @@
                 </div>
                 <div class="panel-body">
                     <table id="errors" class="table table-striped table-bordered"><?php
-						$query = "select log_id, error_type, description, time_found, description from error_log order by log_id asc";
+						$query = "select log_id, error_type, description, time_found, status from error_log order by log_id asc";
 			        
 			        	$result = $mysqli->query($query);
 			            
 			        	//display column headers
 			            echo "<thead>";
 				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Error Type</th>";
-				            echo "<th style='text-align:center' width=\"" . 4*(100/(mysqli_num_fields($result)+3)) . "%\">Description</th></tr>";
+				            echo "<th style='text-align:center' width=\"" . 4*(100/(mysqli_num_fields($result)+3)) . "%\">Description</th>";
 				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Time Found</th>";
 				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Status</th>";
 			            echo "</thead>";
