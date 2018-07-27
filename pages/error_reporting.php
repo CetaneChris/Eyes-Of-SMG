@@ -3,7 +3,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Errors Found</h1>
+            <h1 class="page-header" align="center">Errors Found</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -17,7 +17,6 @@
                 <div class="panel-body">
                     <table id="errors" class="table table-striped table-bordered"><?php
 						$query = "select log_id, error_type, description, time_found, status from error_log order by log_id asc";
-			        
 			        	$result = $mysqli->query($query);
 			            
 			        	//display column headers
@@ -58,6 +57,11 @@
     <!-- /.row -->
 </div>
 <!-- /#page-wrapper -->
+<script type="text/javascript" charset="utf-8">
+	window.onload = function() {
+	   	$('#errors').DataTable();
+    };
+</script>
 <?php
 //Standard call for dependencies
 include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/footer.php');
