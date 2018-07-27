@@ -3,7 +3,7 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header" align="center">Errors Found</h1>
+            <h1 class="page-header" align="center"><strong>Errors Found</strong></h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -59,7 +59,7 @@
 <!-- /#page-wrapper -->
 <script type="text/javascript" charset="utf-8">
 	window.onload = function() {
-	   	$('#errors').DataTable();
+		$('#errors').dataTable();
     };
 </script>
 <?php

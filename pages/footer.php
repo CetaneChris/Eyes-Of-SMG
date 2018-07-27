@@ -13,9 +13,5 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<script type="text/javascript" src="/vendor/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/vendor/moment/moment.js"></script>
-	<!-- <script type="text/javascript" src="/path/to/bootstrap/js/transition.js"></script>
-	<script type="text/javascript" src="/path/to/bootstrap/js/collapse.js"></script>
-	<script type="text/javascript" src="/path/to/bootstrap/dist/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/path/to/bootstrap-datetimepicker.min.js"></script> -->
 </body>
 </html>
