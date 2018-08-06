@@ -5,6 +5,13 @@ import cv2
 import numpy as np
 import sys
 
+from skimage.measure import compare_ssim
+import argparse
+import imutils
+import cv2
+import numpy as np
+import sys
+
 def main():
 	# Ensures there is one argument fed into program
 	ap = argparse.ArgumentParser()
@@ -33,7 +40,10 @@ def main():
 	# Opening image given in arguments and making grayscale
 	base = cv2.imread(args["first"])
 	grayBase = cv2.cvtColor(base, cv2.COLOR_BGR2GRAY)
-	grayBase = cv2.normalize(grayBase, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+	grayBase2 = cv2.normalize(grayBase, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+	grayBase = cv2.Canny(grayBase,80,80) #temporary
+	
+	cv2.imshow("Canny Base", grayBase)
 	
 	imgNotFound = True
 	counter = 0
@@ -50,6 +60,7 @@ def main():
 				ret, frame = cap.read()
 				frameGray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 				normFrame = cv2.normalize(frameGray, None, alpha=0, beta=1, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_32F)
+				normFrame = cv2.Canny(frameGray,80,80) # min max
 				if ret:
 					cv2.imshow("Calibration", normFrame)
 					#height, width, channels = frame.shape
@@ -65,7 +76,7 @@ def main():
 				
 			except KeyboardInterrupt:
 				print("Keyboard Interrupt, ending program...")
-				break
+				sys.exit(0)
 			
 			except:
 				print("Unknown Error occured")

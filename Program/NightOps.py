@@ -45,13 +45,39 @@ def seatAttend(activeSeats,seatList):
 			
 	return list
 	
+def listToString(list):
+	string = ""
+	
+	if len(list) > 0:
+		string = list[0]
+	
+	for i in range(1,len(list)):
+		string = string+","+list[i]
+	
+	return string
+	
+def detectFaces(frame):
+	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+	
+	faces = face_cascade.detectMultiScale(frame, 1.3, 5) # face detection
+	
+	if len(faces) > 0:
+		return True
+	else:
+		return False
 
 def main():
 	# Ensures there is one argument fed into program
 	ap = argparse.ArgumentParser()
 	ap.add_argument("-f", "--first", required=True,
-		help="first input image")
+		help="Empty Theater Image")
+	ap.add_argument("-s", "--second", required=True,
+		help="Camera IP Address")
+	ap.add_argument("-t", "--third", required=True,
+		help="Theater Number")
 	args = vars(ap.parse_args())
+	
+	theaterNumber = args["third"]
 	
 	try:
 		cnx = mysql.connector.connect(user='SeniorDesign', password='SeniorDesign',
@@ -61,12 +87,12 @@ def main():
 		cursor = cnx.cursor()
 		
 	except mysql.connector.Error as err:
-		print("AN ERROR HAS OCCURRED -")
+		print("A DATABASE ERROR HAS OCCURRED -")
 		print(err)
 	
 	# Opening video source, currently the reason code will not work
 	# (Zero is accessing computer's default video source, such as webcam)
-	cap = cv2.VideoCapture(0)
+	cap = cv2.VideoCapture("rtsp://admin:123456@"+args["second"]+"/stream0")
 	if not cap.isOpened():
 			sys.exit("Couldn't capture video source!")
 
@@ -130,81 +156,96 @@ def main():
 			
 			except:
 				print("Unknown Error Occured...")
-		
 		imgNotFound = True
-		
-		grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-		
-		activeSeats = []
-		
-		for i in range(0,len(seatNum)):
-			# Selecting individual seats
-			subGrayBase = grayBase[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
-			subGrayFrame = grayFrame[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
-			
-			# Calculating differences
-			(score, diff) = compare_ssim(subGrayBase, subGrayFrame, full=True)
-			diff = (diff * 255).astype("uint8")
-			
-			if showSeats:
-				cv2.rectangle(frame, (int(x[i]), int(y[i])), (int(x[i]) + int(w[i]), int(y[i]) + int(h[i])), (0, 0, 255), 2)
-			
-			# This segment of code will better show differences if enabled
-			# thresh = cv2.threshold(diff, 0, 255,
-			# cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
-			# cv2.imshow("Thresh", thresh)
-			
-			# Deciding factor as to whether or not a seat is occupied
-			# If not picking up on someone in seat, decrease threshold
-			# If selection is too sensitive, increase threshold
-			if score < .75:
-				activeSeats.append(seatNum[i])
-		
-		# Printing Indices 0
-		#if len(activeSeats) >= 1:
-			#print("{}".format(activeSeats[0]), end = "")
-		
-		# Printing indices greater than 0
-		#for i in activeSeats[1:]:
-			#print(",{}".format(i))
-		
-		#print(activeSeats)
-		#Showing image captured
-		cv2.imshow("Capture",frame)
-		
-		list = seatAttend(activeSeats,seatNum)
 		
 		if time.perf_counter() - clock > 5:
 			clock += 5
-			print("Sending seats: {}".format(activeSeats))
-			dataFormat = ("INSERT INTO track_eyes "
-               "(TRACK_ID, THEATER_NUM, HAS_ATTENTION, TOTAL, TIMESTAMP, A1, A2, A3, A4, A5, B1, B2, B3, B4, B5) "
-               "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)")
+			grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 			
-			data = (0, 1,0,len(activeSeats),datetime.datetime.now(), list[0],list[1],list[2],list[3],list[4],list[5],list[6],list[7],list[8],list[9])
+			activeSeats = []
+			watchingSeats = []
+			
+			for i in range(0,len(seatNum)):
+				# Selecting individual seats
+				subGrayBase = grayBase[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
+				subGrayFrame = grayFrame[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
+				subFrame = frame[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
+				
+				# Calculating differences
+				(score, diff) = compare_ssim(subGrayBase, subGrayFrame, full=True)
+				# diff = (diff * 255).astype("uint8")
+				
+				if showSeats:
+					cv2.rectangle(frame, (int(x[i]), int(y[i])), (int(x[i]) + int(w[i]), int(y[i]) + int(h[i])), (0, 0, 255), 2)
+				
+				# This segment of code will better show differences if enabled
+				# thresh = cv2.threshold(diff, 0, 255,
+				# cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)[1]
+				# cv2.imshow("Thresh", thresh)
+				
+				# Deciding factor as to whether or not a seat is occupied
+				# If not picking up on someone in seat, decrease threshold
+				# If selection is too sensitive, increase threshold
+				if score < .75:
+					activeSeats.append(seatNum[i])
+					
+					if detectFaces(subFrame):
+						watchingSeats.append(seatNum[i])
+			
+			
+			#Showing image captured
+			cv2.imshow("Capture",frame)
+			
+			print("Sending seats: {}".format(activeSeats))
+			print("Faces found in seats: {}".format(watchingSeats))
+			dataFormat = ("INSERT INTO track_eyes"
+			   "(TRACK_ID, THEATER_NUM, HAS_ATTENTION, TOTAL, TIMESTAMP, SEATS_OCCUPIED, SEATS_WATCHING) "
+			   "VALUES (%s, %s, %s, %s, UNIX_TIMESTAMP(%s), %s, %s)")
+			
+			data = (0,theaterNumber,len(watchingSeats),len(activeSeats),datetime.datetime.now(),listToString(activeSeats),listToString(watchingSeats))
 			
 			cursor.execute(dataFormat,data)
-		
-		# Returns pressed key during wait, which is 1 second(s)
-		k = cv2.waitKey(1)
-		
-		# If pressed key is escape, closes program
-		if k%256 == 27:
-			# ESC pressed
-			print("Escape hit, closing...")
-			cnx.close()
-			cap.release()
-			cv2.destroyAllWindows()
-			f.close()
-			break
-		
-		if k%256 == 32:
-			#Space pressed
-			showSeats = not showSeats
-			print("Show Seats: {}".format(showSeats))
 			
+			# Returns pressed key during wait, which is 1 second(s)
+			k = cv2.waitKey(1)
 			
-	
+			# If pressed key is escape, closes program
+			if k%256 == 27:
+				# ESC pressed
+				print("Escape hit, closing...")
+				cnx.close()
+				cap.release()
+				cv2.destroyAllWindows()
+				f.close()
+				break
+			
+			if k%256 == 32:
+				#Space pressed
+				showSeats = not showSeats
+				print("Show Seats: {}".format(showSeats))
+			
+		else:
+			if showSeats:
+				for i in range(0,len(seatNum)):
+					cv2.rectangle(frame, (int(x[i]), int(y[i])), (int(x[i]) + int(w[i]), int(y[i]) + int(h[i])), (0, 0, 255), 2)
+			cv2.imshow("Capture",frame)
+			
+			k = cv2.waitKey(1)
+			
+			if k%256 == 32:
+				#Space pressed
+				showSeats = not showSeats
+				print("Show Seats: {}".format(showSeats))
+			
+			# If pressed key is escape, closes program
+			if k%256 == 27:
+				# ESC pressed
+				print("Escape hit, closing...")
+				cnx.close()
+				cap.release()
+				cv2.destroyAllWindows()
+				f.close()
+				break
 
 if __name__== "__main__":
 	main()

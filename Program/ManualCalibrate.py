@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import sys
+import argparse
 
 #Setting of global variables used to tranfer data to/from mouse event
 tempX,tempY = 0,0 #Crop
@@ -36,11 +37,15 @@ def mouse_event(event,x,y,flags,param):
 def main():
 	global sectionReady,drawX,drawY,tempX,tempY
 	
+	ap = argparse.ArgumentParser()
+	ap.add_argument("-f", "--first", required=True,
+		help="Camera IP Address")
+	args = vars(ap.parse_args())
+	
 	#Capturing video feed
-	cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
+	cap = cv2.VideoCapture("rtsp://admin:123456@"+args["first"]+"/stream0")
 	if not cap.isOpened():
-		print("Did not access device!")
-		return -1
+		sys.exit("Couldn't capture video source!")
 	
 	#Name of calibration file to be written to
 	f = open('Calibration.txt','w')
@@ -76,6 +81,7 @@ def main():
 			try:
 				k = cv2.waitKey(30) & 0xff
 				ret, frame = cap.read()
+				 
 				if drawing:
 					cv2.rectangle(frame, (tempX, tempY), (drawX, drawY), (0, 0, 255), 2) #Showing non-finalized ROI
 				cv2.imshow("Calibration", frame)
@@ -87,7 +93,7 @@ def main():
 			except AssertionError: #Refreshes pipiline
 				print("Assertion Error, empty frame")
 				cap.release()
-				cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
+				cap = cv2.VideoCapture(0)
 			
 			except KeyboardInterrupt:
 				print("Keyboard Interrupt, ending program...")
@@ -148,7 +154,7 @@ def main():
 	f.close()
 	print("Calibration finished properly! Check 'Calibration.txt'")
 	cv2.imshow("Calibration", frame)
-	cv2.waitKey(8000)
+	cv2.waitKey(6000)
 	
 if __name__== "__main__":
 	main()
