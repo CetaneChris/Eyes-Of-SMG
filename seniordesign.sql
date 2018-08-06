@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2018 at 03:03 PM
--- Server version: 5.7.22-0ubuntu0.16.04.1
+-- Generation Time: Aug 06, 2018 at 09:26 AM
+-- Server version: 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -95,6 +95,35 @@ INSERT INTO `devices` VALUES(2, 1, 1);
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `error_log`
+--
+
+DROP TABLE IF EXISTS `error_log`;
+CREATE TABLE IF NOT EXISTS `error_log` (
+  `LOG_ID` INT NOT NULL AUTO_INCREMENT,
+  `ERROR_TYPE` varchar(50) NOT NULL,
+  `STATUS` varchar(20) NOT NULL,
+  `DESCRIPTION` varchar(150) NOT NULL,
+  `TIME_FOUND` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`LOG_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `error_log`
+--
+
+INSERT INTO `error_log` VALUES(1, 'Missing Input', 'Ignored', 'Missing records detected between track record 1 and 3, ignored due to small impact', '2018-07-27 04:02:58');
+INSERT INTO `error_log` VALUES(2, 'Missing Input', 'Ignored', 'Missing records detected between track record 2 and 4, ignored due to small impact', '2018-07-27 04:02:58');
+INSERT INTO `error_log` VALUES(3, 'Missing Input', 'Ignored', 'Missing records detected between track record 14 and 16, ignored due to small impact', '2018-07-27 04:02:59');
+INSERT INTO `error_log` VALUES(4, 'Missing Input', 'Ignored', 'Missing records detected between track record 28 and 29, ignored due to small impact', '2018-07-27 04:02:59');
+INSERT INTO `error_log` VALUES(5, 'Stopped Input', 'Action Required', 'There is at least a 1-minute gap between track record 40 and 41, data input may have stopped', '2018-07-27 04:02:59');
+INSERT INTO `error_log` VALUES(6, 'Missing Input', 'Ignored', 'Missing records detected between track record 64 and 65, ignored due to small impact', '2018-07-27 04:02:59');
+INSERT INTO `error_log` VALUES(7, 'Missing Input', 'Ignored', 'Missing records detected between track record 73 and 74, ignored due to small impact', '2018-07-27 04:02:59');
+INSERT INTO `error_log` VALUES(8, 'Stopped Input', 'Action Required', 'There is at least a 1-minute gap between track record 81 and 82, data input may have stopped', '2018-07-27 04:02:59');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `purchase_history`
 --
 
@@ -113,35 +142,35 @@ CREATE TABLE IF NOT EXISTS `purchase_history` (
 -- Dumping data for table `purchase_history`
 --
 
-INSERT INTO `purchase_history` VALUES(1, 1, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
-INSERT INTO `purchase_history` VALUES(2, 1, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
-INSERT INTO `purchase_history` VALUES(3, 1, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
-INSERT INTO `purchase_history` VALUES(4, 1, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
-INSERT INTO `purchase_history` VALUES(5, 1, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
-INSERT INTO `purchase_history` VALUES(6, 1, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(7, 1, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(8, 1, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
-INSERT INTO `purchase_history` VALUES(9, 1, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
-INSERT INTO `purchase_history` VALUES(10, 1, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
-INSERT INTO `purchase_history` VALUES(11, 1, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
-INSERT INTO `purchase_history` VALUES(12, 1, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
-INSERT INTO `purchase_history` VALUES(13, 1, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(14, 1, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(15, 1, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
-INSERT INTO `purchase_history` VALUES(16, 1, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
-INSERT INTO `purchase_history` VALUES(17, 1, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
-INSERT INTO `purchase_history` VALUES(18, 1, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
-INSERT INTO `purchase_history` VALUES(19, 1, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
-INSERT INTO `purchase_history` VALUES(20, 1, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(21, 1, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(22, 1, 1, 'SIDE', 'PRETZEL', '2018-05-04 02:33:00');
-INSERT INTO `purchase_history` VALUES(23, 3, 1, 'FOOD', 'BURGER', '2018-05-04 02:05:04');
-INSERT INTO `purchase_history` VALUES(24, 3, 1, 'BEVERAGE', 'COORS', '2018-05-04 02:09:29');
-INSERT INTO `purchase_history` VALUES(25, 3, 2, 'SIDE', 'POPCORN', '2018-05-04 02:13:13');
-INSERT INTO `purchase_history` VALUES(26, 3, 2, 'BEVERAGE', 'COKE', '2018-05-04 02:18:36');
-INSERT INTO `purchase_history` VALUES(27, 3, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 02:22:36');
-INSERT INTO `purchase_history` VALUES(28, 3, 3, 'FOOD', 'PIZZA', '2018-05-04 02:28:13');
-INSERT INTO `purchase_history` VALUES(29, 3, 3, 'BEVERAGE', 'COORS', '2018-05-04 02:28:13');
+INSERT INTO `purchase_history` VALUES(1, 2, 1, 'FOOD', 'BURGER', '2018-05-04 08:05:04');
+INSERT INTO `purchase_history` VALUES(2, 1, 1, 'BEVERAGE', 'COORS', '2018-05-04 08:09:29');
+INSERT INTO `purchase_history` VALUES(3, 2, 2, 'SIDE', 'POPCORN', '2018-05-04 08:13:13');
+INSERT INTO `purchase_history` VALUES(4, 2, 2, 'BEVERAGE', 'COKE', '2018-05-04 08:18:36');
+INSERT INTO `purchase_history` VALUES(5, 2, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 08:22:36');
+INSERT INTO `purchase_history` VALUES(6, 2, 3, 'FOOD', 'PIZZA', '2018-05-04 08:28:13');
+INSERT INTO `purchase_history` VALUES(7, 2, 3, 'BEVERAGE', 'COORS', '2018-05-04 08:28:13');
+INSERT INTO `purchase_history` VALUES(8, 2, 1, 'FOOD', 'BURGER', '2018-05-04 08:05:04');
+INSERT INTO `purchase_history` VALUES(9, 2, 1, 'BEVERAGE', 'COORS', '2018-05-04 08:09:29');
+INSERT INTO `purchase_history` VALUES(10, 2, 2, 'SIDE', 'POPCORN', '2018-05-04 08:13:13');
+INSERT INTO `purchase_history` VALUES(11, 2, 2, 'BEVERAGE', 'COKE', '2018-05-04 08:18:36');
+INSERT INTO `purchase_history` VALUES(12, 2, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 08:22:36');
+INSERT INTO `purchase_history` VALUES(13, 2, 3, 'FOOD', 'PIZZA', '2018-05-04 08:28:13');
+INSERT INTO `purchase_history` VALUES(14, 2, 3, 'BEVERAGE', 'COORS', '2018-05-04 08:28:13');
+INSERT INTO `purchase_history` VALUES(15, 2, 1, 'FOOD', 'BURGER', '2018-05-04 08:05:04');
+INSERT INTO `purchase_history` VALUES(16, 2, 1, 'BEVERAGE', 'COORS', '2018-05-04 08:09:29');
+INSERT INTO `purchase_history` VALUES(17, 1, 2, 'SIDE', 'POPCORN', '2018-05-04 08:13:13');
+INSERT INTO `purchase_history` VALUES(18, 1, 2, 'BEVERAGE', 'COKE', '2018-05-04 08:18:36');
+INSERT INTO `purchase_history` VALUES(19, 1, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 08:22:36');
+INSERT INTO `purchase_history` VALUES(20, 1, 3, 'FOOD', 'PIZZA', '2018-05-04 08:28:13');
+INSERT INTO `purchase_history` VALUES(21, 1, 3, 'BEVERAGE', 'COORS', '2018-05-04 08:28:13');
+INSERT INTO `purchase_history` VALUES(22, 1, 1, 'SIDE', 'PRETZEL', '2018-05-04 08:33:00');
+INSERT INTO `purchase_history` VALUES(23, 3, 1, 'FOOD', 'BURGER', '2018-05-04 08:05:04');
+INSERT INTO `purchase_history` VALUES(24, 3, 1, 'BEVERAGE', 'COORS', '2018-05-04 08:09:29');
+INSERT INTO `purchase_history` VALUES(25, 3, 2, 'SIDE', 'POPCORN', '2018-05-04 08:13:13');
+INSERT INTO `purchase_history` VALUES(26, 3, 2, 'BEVERAGE', 'COKE', '2018-05-04 08:18:36');
+INSERT INTO `purchase_history` VALUES(27, 3, 3, 'BEVERAGE', 'SPRITE', '2018-05-04 08:22:36');
+INSERT INTO `purchase_history` VALUES(28, 3, 3, 'FOOD', 'PIZZA', '2018-05-04 08:28:13');
+INSERT INTO `purchase_history` VALUES(29, 3, 3, 'BEVERAGE', 'COORS', '2018-05-04 08:28:13');
 
 -- --------------------------------------------------------
 
@@ -235,54 +264,117 @@ CREATE TABLE IF NOT EXISTS `track_eyes` (
   `HAS_ATTENTION` INT NOT NULL,
   `TOTAL` INT NOT NULL,
   `TIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `OCCUPIED` varchar(10000) NOT NULL,
-  `ATTENTION` varchar(10000) NOT NULL,
+  `SEATS_OCCUPIED` text NOT NULL,
+  `SEATS_WATCHING` text NOT NULL,
   PRIMARY KEY (`TRACK_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `track_eyes`
 --
 
-INSERT INTO `track_eyes` VALUES(1, 1, 1, 1, '2018-05-04 02:00:00', '', '');
-INSERT INTO `track_eyes` VALUES(3, 1, 3, 3, '2018-05-04 02:10:00', '', '');
-INSERT INTO `track_eyes` VALUES(2, 1, 2, 3, '2018-05-04 02:05:00', '', '');
-INSERT INTO `track_eyes` VALUES(4, 1, 5, 5, '2018-05-04 02:15:00', '', '');
-INSERT INTO `track_eyes` VALUES(5, 1, 4, 5, '2018-05-04 02:20:00', '', '');
-INSERT INTO `track_eyes` VALUES(6, 1, 6, 6, '2018-05-04 02:25:00', '', '');
-INSERT INTO `track_eyes` VALUES(7, 1, 5, 6, '2018-05-04 02:30:00', '', '');
-INSERT INTO `track_eyes` VALUES(8, 1, 5, 6, '2018-05-04 02:35:00', '', '');
-INSERT INTO `track_eyes` VALUES(9, 1, 6, 8, '2018-05-04 02:40:00', '', '');
-INSERT INTO `track_eyes` VALUES(10, 1, 7, 8, '2018-05-04 02:45:00', '', '');
-INSERT INTO `track_eyes` VALUES(11, 1, 5, 8, '2018-05-04 02:50:00', '', '');
-INSERT INTO `track_eyes` VALUES(12, 1, 5, 8, '2018-05-04 02:55:00', '', '');
-INSERT INTO `track_eyes` VALUES(13, 1, 7, 8, '2018-05-04 03:00:00', '', '');
-INSERT INTO `track_eyes` VALUES(15, 2, 2, 3, '2018-05-04 02:05:00', '', '');
-INSERT INTO `track_eyes` VALUES(14, 2, 1, 1, '2018-05-04 02:00:00', '', '');
-INSERT INTO `track_eyes` VALUES(16, 2, 3, 3, '2018-05-04 02:10:00', '', '');
-INSERT INTO `track_eyes` VALUES(17, 2, 5, 5, '2018-05-04 02:15:00', '', '');
-INSERT INTO `track_eyes` VALUES(18, 2, 4, 5, '2018-05-04 02:20:00', '', '');
-INSERT INTO `track_eyes` VALUES(19, 2, 6, 6, '2018-05-04 02:25:00', '', '');
-INSERT INTO `track_eyes` VALUES(20, 2, 5, 6, '2018-05-04 02:30:00', '', '');
-INSERT INTO `track_eyes` VALUES(21, 2, 5, 6, '2018-05-04 02:35:00', '', '');
-INSERT INTO `track_eyes` VALUES(22, 2, 6, 8, '2018-05-04 02:40:00', '', '');
-INSERT INTO `track_eyes` VALUES(23, 2, 7, 8, '2018-05-04 02:45:00', '', '');
-INSERT INTO `track_eyes` VALUES(24, 2, 5, 8, '2018-05-04 02:50:00', '', '');
-INSERT INTO `track_eyes` VALUES(25, 2, 5, 8, '2018-05-04 02:55:00', '', '');
-INSERT INTO `track_eyes` VALUES(26, 2, 7, 8, '2018-05-04 03:00:00', '', '');
-INSERT INTO `track_eyes` VALUES(27, 3, 2, 3, '2018-05-04 02:05:00', '', '');
-INSERT INTO `track_eyes` VALUES(28, 3, 1, 1, '2018-05-04 02:00:00', '', '');
-INSERT INTO `track_eyes` VALUES(29, 3, 3, 3, '2018-05-04 02:10:00', '', '');
-INSERT INTO `track_eyes` VALUES(30, 3, 5, 5, '2018-05-04 02:15:00', '', '');
-INSERT INTO `track_eyes` VALUES(31, 3, 4, 5, '2018-05-04 02:20:00', '', '');
-INSERT INTO `track_eyes` VALUES(32, 3, 6, 6, '2018-05-04 02:25:00', '', '');
-INSERT INTO `track_eyes` VALUES(33, 3, 5, 6, '2018-05-04 02:30:00', '', '');
-INSERT INTO `track_eyes` VALUES(34, 3, 5, 6, '2018-05-04 02:35:00', '', '');
-INSERT INTO `track_eyes` VALUES(35, 3, 6, 8, '2018-05-04 02:40:00', '', '');
-INSERT INTO `track_eyes` VALUES(36, 3, 7, 8, '2018-05-04 02:45:00', '', '');
-INSERT INTO `track_eyes` VALUES(37, 3, 5, 8, '2018-05-04 02:50:00', '', '');
-INSERT INTO `track_eyes` VALUES(38, 3, 5, 8, '2018-05-04 02:55:00', '', '');
-INSERT INTO `track_eyes` VALUES(39, 3, 7, 8, '2018-05-04 03:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(1, 1, 1, 1, '2018-05-04 08:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(3, 1, 3, 3, '2018-05-04 08:10:00', '', '');
+INSERT INTO `track_eyes` VALUES(2, 1, 2, 3, '2018-05-04 08:05:00', '', '');
+INSERT INTO `track_eyes` VALUES(4, 1, 5, 5, '2018-05-04 08:15:00', '', '');
+INSERT INTO `track_eyes` VALUES(5, 1, 4, 5, '2018-05-04 08:20:00', '', '');
+INSERT INTO `track_eyes` VALUES(6, 1, 6, 6, '2018-05-04 08:25:00', '', '');
+INSERT INTO `track_eyes` VALUES(7, 1, 5, 6, '2018-05-04 08:30:00', '', '');
+INSERT INTO `track_eyes` VALUES(8, 1, 5, 6, '2018-05-04 08:35:00', '', '');
+INSERT INTO `track_eyes` VALUES(9, 1, 6, 8, '2018-05-04 08:40:00', '', '');
+INSERT INTO `track_eyes` VALUES(10, 1, 7, 8, '2018-05-04 08:45:00', '', '');
+INSERT INTO `track_eyes` VALUES(11, 1, 5, 8, '2018-05-04 08:50:00', '', '');
+INSERT INTO `track_eyes` VALUES(12, 1, 5, 8, '2018-05-04 08:55:00', '', '');
+INSERT INTO `track_eyes` VALUES(13, 1, 7, 8, '2018-05-04 09:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(15, 2, 2, 3, '2018-05-04 08:05:00', '', '');
+INSERT INTO `track_eyes` VALUES(14, 2, 1, 1, '2018-05-04 08:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(16, 2, 3, 3, '2018-05-04 08:10:00', '', '');
+INSERT INTO `track_eyes` VALUES(17, 2, 5, 5, '2018-05-04 08:15:00', '', '');
+INSERT INTO `track_eyes` VALUES(18, 2, 4, 5, '2018-05-04 08:20:00', '', '');
+INSERT INTO `track_eyes` VALUES(19, 2, 6, 6, '2018-05-04 08:25:00', '', '');
+INSERT INTO `track_eyes` VALUES(20, 2, 5, 6, '2018-05-04 08:30:00', '', '');
+INSERT INTO `track_eyes` VALUES(21, 2, 5, 6, '2018-05-04 08:35:00', '', '');
+INSERT INTO `track_eyes` VALUES(22, 2, 6, 8, '2018-05-04 08:40:00', '', '');
+INSERT INTO `track_eyes` VALUES(23, 2, 7, 8, '2018-05-04 08:45:00', '', '');
+INSERT INTO `track_eyes` VALUES(24, 2, 5, 8, '2018-05-04 08:50:00', '', '');
+INSERT INTO `track_eyes` VALUES(25, 2, 5, 8, '2018-05-04 08:55:00', '', '');
+INSERT INTO `track_eyes` VALUES(26, 2, 7, 8, '2018-05-04 09:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(27, 3, 2, 3, '2018-05-04 08:05:00', '', '');
+INSERT INTO `track_eyes` VALUES(28, 3, 1, 1, '2018-05-04 08:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(29, 3, 3, 3, '2018-05-04 08:10:00', '', '');
+INSERT INTO `track_eyes` VALUES(30, 3, 5, 5, '2018-05-04 08:15:00', '', '');
+INSERT INTO `track_eyes` VALUES(31, 3, 4, 5, '2018-05-04 08:20:00', '', '');
+INSERT INTO `track_eyes` VALUES(32, 3, 6, 6, '2018-05-04 08:25:00', '', '');
+INSERT INTO `track_eyes` VALUES(33, 3, 5, 6, '2018-05-04 08:30:00', '', '');
+INSERT INTO `track_eyes` VALUES(34, 3, 5, 6, '2018-05-04 08:35:00', '', '');
+INSERT INTO `track_eyes` VALUES(35, 3, 6, 8, '2018-05-04 08:40:00', '', '');
+INSERT INTO `track_eyes` VALUES(36, 3, 7, 8, '2018-05-04 08:45:00', '', '');
+INSERT INTO `track_eyes` VALUES(37, 3, 5, 8, '2018-05-04 08:50:00', '', '');
+INSERT INTO `track_eyes` VALUES(38, 3, 5, 8, '2018-05-04 08:55:00', '', '');
+INSERT INTO `track_eyes` VALUES(39, 3, 7, 8, '2018-05-04 09:00:00', '', '');
+INSERT INTO `track_eyes` VALUES(40, 1, 5, 5, '2018-05-04 08:15:00', '', '');
+INSERT INTO `track_eyes` VALUES(41, 1, 0, 0, '2018-07-24 15:57:35', '', '');
+INSERT INTO `track_eyes` VALUES(42, 1, 0, 2, '2018-07-24 15:57:40', '', '');
+INSERT INTO `track_eyes` VALUES(43, 1, 0, 1, '2018-07-24 15:57:45', '', '');
+INSERT INTO `track_eyes` VALUES(44, 1, 0, 4, '2018-07-24 15:57:50', '', '');
+INSERT INTO `track_eyes` VALUES(45, 1, 0, 10, '2018-07-24 15:57:55', '', '');
+INSERT INTO `track_eyes` VALUES(46, 1, 0, 4, '2018-07-24 15:58:00', '', '');
+INSERT INTO `track_eyes` VALUES(47, 1, 0, 2, '2018-07-24 15:58:05', '', '');
+INSERT INTO `track_eyes` VALUES(48, 1, 0, 6, '2018-07-24 15:58:10', '', '');
+INSERT INTO `track_eyes` VALUES(49, 1, 0, 4, '2018-07-24 15:58:15', '', '');
+INSERT INTO `track_eyes` VALUES(50, 1, 0, 6, '2018-07-24 15:58:20', '', '');
+INSERT INTO `track_eyes` VALUES(51, 1, 0, 3, '2018-07-24 15:58:25', '', '');
+INSERT INTO `track_eyes` VALUES(52, 1, 0, 0, '2018-07-24 15:58:30', '', '');
+INSERT INTO `track_eyes` VALUES(53, 1, 0, 2, '2018-07-24 15:58:35', '', '');
+INSERT INTO `track_eyes` VALUES(54, 1, 0, 1, '2018-07-24 15:58:40', '', '');
+INSERT INTO `track_eyes` VALUES(55, 1, 0, 2, '2018-07-24 15:58:45', '', '');
+INSERT INTO `track_eyes` VALUES(56, 1, 0, 4, '2018-07-24 15:58:50', '', '');
+INSERT INTO `track_eyes` VALUES(57, 1, 0, 4, '2018-07-24 15:58:55', '', '');
+INSERT INTO `track_eyes` VALUES(58, 1, 0, 4, '2018-07-24 15:59:00', '', '');
+INSERT INTO `track_eyes` VALUES(59, 1, 0, 4, '2018-07-24 15:59:05', '', '');
+INSERT INTO `track_eyes` VALUES(60, 1, 0, 4, '2018-07-24 15:59:10', '', '');
+INSERT INTO `track_eyes` VALUES(61, 1, 0, 2, '2018-07-24 15:59:15', '', '');
+INSERT INTO `track_eyes` VALUES(62, 1, 0, 0, '2018-07-24 15:59:20', '', '');
+INSERT INTO `track_eyes` VALUES(63, 1, 0, 1, '2018-07-24 15:59:25', '', '');
+INSERT INTO `track_eyes` VALUES(64, 1, 0, 0, '2018-07-24 15:59:30', '', '');
+INSERT INTO `track_eyes` VALUES(65, 1, 0, 0, '2018-07-24 16:12:25', '', '');
+INSERT INTO `track_eyes` VALUES(66, 1, 0, 1, '2018-07-24 16:12:30', '', '');
+INSERT INTO `track_eyes` VALUES(67, 1, 0, 4, '2018-07-24 16:12:35', '', '');
+INSERT INTO `track_eyes` VALUES(68, 1, 0, 6, '2018-07-24 16:12:40', '', '');
+INSERT INTO `track_eyes` VALUES(69, 1, 0, 3, '2018-07-24 16:12:45', '', '');
+INSERT INTO `track_eyes` VALUES(70, 1, 0, 6, '2018-07-24 16:12:50', '', '');
+INSERT INTO `track_eyes` VALUES(71, 1, 0, 6, '2018-07-24 16:15:17', '', '');
+INSERT INTO `track_eyes` VALUES(72, 1, 0, 6, '2018-07-24 16:15:22', '', '');
+INSERT INTO `track_eyes` VALUES(73, 1, 0, 6, '2018-07-24 16:15:27', '', '');
+INSERT INTO `track_eyes` VALUES(74, 1, 0, 4, '2018-07-24 16:24:16', '', '');
+INSERT INTO `track_eyes` VALUES(75, 1, 0, 6, '2018-07-24 16:24:41', '', '');
+INSERT INTO `track_eyes` VALUES(76, 1, 0, 6, '2018-07-24 16:24:45', '', '');
+INSERT INTO `track_eyes` VALUES(77, 1, 0, 0, '2018-07-24 16:24:51', '', '');
+INSERT INTO `track_eyes` VALUES(78, 1, 0, 3, '2018-07-24 16:24:56', '', '');
+INSERT INTO `track_eyes` VALUES(79, 1, 0, 2, '2018-07-24 16:25:00', '', '');
+INSERT INTO `track_eyes` VALUES(80, 1, 0, 5, '2018-07-24 16:25:06', '', '');
+INSERT INTO `track_eyes` VALUES(81, 1, 0, 5, '2018-07-24 16:25:11', '', '');
+INSERT INTO `track_eyes` VALUES(82, 1, 0, 0, '2018-07-25 13:42:51', '', '');
+INSERT INTO `track_eyes` VALUES(83, 1, 0, 2, '2018-07-25 13:42:56', '', '');
+INSERT INTO `track_eyes` VALUES(84, 1, 0, 1, '2018-07-25 13:43:02', '', '');
+INSERT INTO `track_eyes` VALUES(85, 1, 0, 2, '2018-07-25 13:43:06', '', '');
+INSERT INTO `track_eyes` VALUES(86, 1, 0, 2, '2018-07-25 13:43:11', '', '');
+INSERT INTO `track_eyes` VALUES(87, 1, 0, 2, '2018-07-25 13:43:16', '', '');
+INSERT INTO `track_eyes` VALUES(88, 1, 0, 2, '2018-07-25 13:43:22', '', '');
+INSERT INTO `track_eyes` VALUES(89, 1, 0, 7, '2018-07-25 13:43:26', '', '');
+INSERT INTO `track_eyes` VALUES(90, 1, 0, 4, '2018-07-25 13:43:32', '', '');
+INSERT INTO `track_eyes` VALUES(91, 1, 0, 6, '2018-07-25 13:43:36', '', '');
+INSERT INTO `track_eyes` VALUES(92, 1, 0, 1, '2018-07-25 13:43:41', '', '');
+INSERT INTO `track_eyes` VALUES(93, 1, 0, 3, '2018-07-25 13:43:47', '', '');
+INSERT INTO `track_eyes` VALUES(94, 1, 0, 0, '2018-07-25 13:43:51', '', '');
+INSERT INTO `track_eyes` VALUES(95, 1, 0, 10, '2018-07-25 13:43:56', '', '');
+INSERT INTO `track_eyes` VALUES(96, 1, 0, 5, '2018-07-25 13:44:02', '', '');
+INSERT INTO `track_eyes` VALUES(97, 1, 0, 2, '2018-07-25 13:44:06', '', '');
+INSERT INTO `track_eyes` VALUES(98, 1, 0, 2, '2018-07-25 13:44:11', '', '');
+INSERT INTO `track_eyes` VALUES(99, 1, 0, 2, '2018-07-25 13:44:17', '', '');
+INSERT INTO `track_eyes` VALUES(100, 1, 0, 2, '2018-07-25 13:44:22', '', '');
+INSERT INTO `track_eyes` VALUES(101, 1, 0, 2, '2018-07-25 13:44:26', '', '');
+INSERT INTO `track_eyes` VALUES(102, 1, 0, 0, '2018-07-25 13:44:32', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
