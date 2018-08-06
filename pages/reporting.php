@@ -52,7 +52,7 @@
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
-            <form name="homepage" method="POST" action="/pages/realtime.php">
+            <!-- <form name="homepage" method="POST" action="/pages/realtime.php">
 	            <div class="panel panel-default">
 	            	<input type='hidden' id='theater_num' name='theater_num' value=<?php echo $_POST['theater_number']?>>
 					<input type='submit' class='btn btn-block btn-outline-secondary' style='white-space: normal;' value='For a real time view into the theater, and occupancy information. Click here.'></input>
