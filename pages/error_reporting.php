@@ -1,6 +1,6 @@
 <?php include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
 if(ISSET($_POST['log_id'])){
-    echo("happy gilmore");
+    $mysqli->query('UPDATE `error_log` SET `STATUS` = \'Corrected\' WHERE `error_log`.`LOG_ID` = ' . $_POST['log_id']);
     unset($_POST['log_id']);
 }?>
 <title>Errors Found</title>
@@ -63,7 +63,7 @@ if(ISSET($_POST['log_id'])){
     			                  }?>
     			            </tbody>
     					</table>
-    					<input class="btn btn-primary pull-right" type="submit" value="Complete">
+    					<input class="btn btn-primary pull-right" type="submit" value="Correct">
 					</form>
                 </div>
                 <div class="panel-body">
