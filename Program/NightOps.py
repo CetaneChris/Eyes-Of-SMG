@@ -57,7 +57,7 @@ def listToString(list):
 	return string
 	
 def detectFaces(frame):
-	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
+	face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 	
 	faces = face_cascade.detectMultiScale(frame, 1.15, 5) # face detection
 	
