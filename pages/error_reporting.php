@@ -1,4 +1,8 @@
-<?php include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');?>
+<?php include_once ($_SERVER['DOCUMENT_ROOT'].'/pages/header.php');
+if(ISSET($_POST['log_id'])){
+    echo("happy gilmore");
+    unset($_POST['log_id']);
+}?>
 <title>Errors Found</title>
 <div id="page-wrapper">
     <div class="row">
@@ -11,11 +15,14 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
+                <div class="alert alert-danger" role = "alert" id="errordiv" style="display:none">
+					<p id="errormessage"></p>
+				</div>
                 <div class="panel-heading">
                     <i class="fas fa-exclamation-circle fa-fw"></i> Errors
                 </div>
                 <div class="panel-body">
-                	<form name="homepage" method="POST" action="/pages/updateError.php">
+                	<form name="errors" method="POST" action="/pages/error_reporting.php" onsubmit="return validateForm();">
                         <table id="errors" class="table table-striped table-bordered"><?php
     						$query = "select log_id, error_type, description, time_found, status from error_log order by log_id asc";
     			        	$result = $mysqli->query($query);
@@ -36,7 +43,7 @@
     			                  	
     			                  	//Radio Button
                                     if($row['status'] == 'Action Required')
-                                        echo "<td align='center'><input type='radio' name='log_id' value='" . $row['log_id'] . "'></td>";
+                                        echo "<td align='center'><input type='radio' id='log_id' name='log_id' value='" . $row['log_id'] . "'></td>";
     			                  	else
     			                  	    echo "<td align='center'></td>";
     			                  	
@@ -53,8 +60,7 @@
     		                  		echo "<td align='center'>" . $row['status'] . "</td>";
     
     		                  		echo "</tr>";
-    			                  }
-    			                  ?>   
+    			                  }?>
     			            </tbody>
     					</table>
     					<input class="btn btn-primary pull-right" type="submit" value="Complete">
@@ -74,6 +80,17 @@
 	window.onload = function() {
 		$('#errors').dataTable();
     };
+
+    function validateForm(){
+    	var log_id = document.getElementById("log_id");
+    	    
+    	if(!log_id.checked){
+    		document.getElementById('errordiv').style.display = 'block';
+    		document.getElementById("errormessage").innerHTML = "No Error Selected";
+
+    		return false;
+    	}
+    }
 </script>
 <?php
 //Standard call for dependencies
