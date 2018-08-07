@@ -39,7 +39,7 @@ $times = array();?>
     			                  	echo "<tr>";
 
     			                  	//Theater ID
-    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-block' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
+    			                  	echo "<td align = 'center'><input type='submit' class='btn btn-lg btn-block active' aria-pressed='true' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
 
     			                  	//Status
     			                  	echo "<td align = 'center'><p style='font-size:26px'>" . $row['message'] . "</td>";
