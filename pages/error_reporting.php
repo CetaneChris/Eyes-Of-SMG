@@ -30,7 +30,12 @@ if(ISSET($_POST['log_id'])){
     			        	//display column headers
                             echo "<thead>";
                                 echo "<th style='text-align:center' width=\"4%\">Update</th>";
-    				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Error Type</th>";
+    				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Error Type"?>
+    				        		<select>
+										<option value="none">No Selection</option>
+										<option value="missing">Missing Input</option>
+										<option value="stopped">Stopped Input</option>
+									</select> <?php "</th>";
                                 echo "<th style='text-align:center' width=\"" . 4*(100/(mysqli_num_fields($result)+3)) . "%\">Description</th>";
                                 echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Time Found</th>";
                                 echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Status</th>";
