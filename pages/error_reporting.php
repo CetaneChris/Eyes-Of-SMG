@@ -15,14 +15,14 @@
                     <i class="fas fa-exclamation-circle fa-fw"></i> Errors
                 </div>
                 <div class="panel-body">
-                	<form name="homepage" method="POST" action="/pages/realtime.php">
+                	<form name="homepage" method="POST" action="/pages/updateError.php">
                         <table id="errors" class="table table-striped table-bordered"><?php
     						$query = "select log_id, error_type, description, time_found, status from error_log order by log_id asc";
     			        	$result = $mysqli->query($query);
     			            
     			        	//display column headers
                             echo "<thead>";
-                                echo "<th style='text-align:center' width=\"5%\">Update</th>";
+                                echo "<th style='text-align:center' width=\"4%\">Update</th>";
     				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Error Type</th>";
                                 echo "<th style='text-align:center' width=\"" . 4*(100/(mysqli_num_fields($result)+3)) . "%\">Description</th>";
                                 echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Time Found</th>";
@@ -35,26 +35,29 @@
     			                  	echo "<tr>";
     			                  	
     			                  	//Radio Button
-    			                  	echo "<td align='center'><input type='radio' name='log_id' value='" . $row['log_id'] . "'></td>";
+                                    if($row['status'] == 'Action Required')
+                                        echo "<td align='center'><input type='radio' name='log_id' value='" . $row['log_id'] . "'></td>";
+    			                  	else
+    			                  	    echo "<td align='center'></td>";
     			                  	
     			                  	//Error Type
-    			                  	echo "<td align='center' style='padding: 15px'>" . $row['error_type'] . "</td>";
+    			                  	echo "<td align='center'>" . $row['error_type'] . "</td>";
     			                  	
     			                  	//Description
-    			                  	echo "<td align='center' style='padding: 15px'>" . $row['description'] . "</td>";
+    			                  	echo "<td align='center'>" . $row['description'] . "</td>";
     			                  	
     			                  	//Time Found
-    						    	echo "<td align='center' style='padding: 15px'>" . $row['time_found'] . "</td>";
+    						    	echo "<td align='center'>" . $row['time_found'] . "</td>";
     						    	
     						    	//Status
-    		                  		echo "<td align='center' style='padding: 15px'>" . $row['status'] . "</td>";
+    		                  		echo "<td align='center'>" . $row['status'] . "</td>";
     
     		                  		echo "</tr>";
     			                  }
     			                  ?>   
     			            </tbody>
     					</table>
-    					<input class="btn btn-primary pull-right" type="submit" value="Submit">
+    					<input class="btn btn-primary pull-right" type="submit" value="Complete">
 					</form>
                 </div>
                 <div class="panel-body">
