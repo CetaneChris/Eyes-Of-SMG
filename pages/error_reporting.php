@@ -35,16 +35,18 @@ if(ISSET($_POST['log_id'])){
                                 echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Time Found</th>";
                                 echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Status</th>";
                             echo "</thead>";
-    			
+
+                            $show = false;
     			            //display the data
     			            echo "<tbody>";
     			            	while($row = mysqli_fetch_array($result)){
     			                  	echo "<tr>";
     			                  	
     			                  	//Radio Button
-                                    if($row['status'] == 'Action Required')
+                                    if($row['status'] == 'Action Required'){
                                         echo "<td align='center'><input type='radio' id='log_id' name='log_id' value='" . $row['log_id'] . "'></td>";
-    			                  	else
+                                        $show = true;
+                                    }else
     			                  	    echo "<td align='center'></td>";
     			                  	
     			                  	//Error Type
@@ -63,7 +65,9 @@ if(ISSET($_POST['log_id'])){
     			                  }?>
     			            </tbody>
     					</table>
-    					<input class="btn btn-primary pull-right" type="submit" value="Correct">
+    					<?php if($show){?>
+    						<input class="btn btn-primary pull-right" type="submit" value="Correct">
+    					<?php }?>
 					</form>
                 </div>
             </div>
