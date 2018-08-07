@@ -45,7 +45,7 @@ $times = array();?>
     			                  	echo "<td align = 'center'><p style='font-size:16px'>" . $row['message'] . "</td>";
 
     			                  	//Movie
-    			                  	echo "<td align = 'center'><p style='font-size:16px'>" . $row['movie'] . "</td>";
+    			                  	echo "<td align = 'center'><p style='font-size:16px'><b><i>" . $row['movie'] . "</b></i></td>";
 
     			                  	//Remaining Time
     			                  	echo "<td align = 'center'><div id='th" . $row['ID'] . "'><p style='font-size:16px'>" . $row['remaining_time'] . "</div></td>";
