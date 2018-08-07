@@ -169,7 +169,7 @@ def main():
 				# Selecting individual seats
 				subGrayBase = grayBase[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
 				subGrayFrame = grayFrame[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
-				subFrame = frame[int(y[i]):int(y[i])+int(h[i]), int(x[i]):int(x[i])+int(w[i])]
+				
 				
 				# Calculating differences
 				(score, diff) = compare_ssim(subGrayBase, subGrayFrame, full=True)
@@ -189,7 +189,7 @@ def main():
 				if score < .75:
 					activeSeats.append(seatNum[i])
 					
-					if detectFaces(subFrame):
+					if detectFaces(subGrayFrame):
 						watchingSeats.append(seatNum[i])
 			
 			
