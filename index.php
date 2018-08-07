@@ -42,13 +42,13 @@ $times = array();?>
     			                  	echo "<td align = 'center'><input type='submit' class='btn btn-block' id='theater_number' name='theater_number'  value='" . $row['ID'] . "'></td>";
 
     			                  	//Status
-    			                  	echo "<td align = 'center'><p style='font-size:16px'>" . $row['message'] . "</td>";
+    			                  	echo "<td align = 'center'><p style='font-size:26px'>" . $row['message'] . "</td>";
 
     			                  	//Movie
-    			                  	echo "<td align = 'center'><p style='font-size:16px'><b><i>" . $row['movie'] . "</b></i></td>";
+    			                  	echo "<td align = 'center'><p style='font-size:26px'><b><i>" . $row['movie'] . "</b></i></td>";
 
     			                  	//Remaining Time
-    			                  	echo "<td align = 'center'><div id='th" . $row['ID'] . "'><p style='font-size:16px'>" . $row['remaining_time'] . "</div></td>";
+    			                  	echo "<td align = 'center'><div id='th" . $row['ID'] . "'><p style='font-size:26px'>" . $row['remaining_time'] . "</div></td>";
 
     			                  	echo "</tr>";
 
