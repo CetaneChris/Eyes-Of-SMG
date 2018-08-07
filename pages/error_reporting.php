@@ -66,10 +66,31 @@ if(ISSET($_POST['log_id'])){
     					<input class="btn btn-primary pull-right" type="submit" value="Correct">
 					</form>
                 </div>
-                <div class="panel-body">
-                    
-                </div>
             </div>
+			<div class="panel-body">
+				<table id="filters" class="table table-bordered">
+					<th>Error Type:</th>
+					<th><select style='width:100%;'>
+						<option value="none">No Selection</option>
+						<option value="missing">Missing Input</option>
+						<option value="stopped">Stopped Input</option>
+					</select></th>
+					
+					<th>After Date:</th>
+					<th>PLACEHOLDER</th>
+					
+					<th>Before Date:</th>
+					<th>PLACEHOLDER</th>
+					
+					<th>Status:</th>
+					<th><select style='width:100%;'>
+						<option value="none">No Selection</option>
+						<option value="action">Action Required</option>
+						<option value="ignore">Ignored</option>
+						<option value="correct">Corrected</option>
+					</select></th>
+				</table>
+			</div>
         </div>
         <!-- /.col-lg-12 -->
     </div>
