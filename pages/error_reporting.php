@@ -14,6 +14,30 @@ if(ISSET($_POST['log_id'])){
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
+			<div class="panel-body">
+				<table id="filters" class="table table-bordered">
+					<th>Error Type:</th>
+					<th><select style='width:100%;'>
+						<option value="none">No Selection</option>
+						<option value="missing">Missing Input</option>
+						<option value="stopped">Stopped Input</option>
+					</select></th>
+					
+					<th>After Date:</th>
+					<th>PLACEHOLDER</th>
+					
+					<th>Before Date:</th>
+					<th>PLACEHOLDER</th>
+					
+					<th>Status:</th>
+					<th><select style='width:100%;'>
+						<option value="none">No Selection</option>
+						<option value="action">Action Required</option>
+						<option value="ignore">Ignored</option>
+						<option value="correct">Corrected</option>
+					</select></th>
+				</table>
+			</div>
             <div class="panel panel-default">
                 <div class="alert alert-danger" role = "alert" id="errordiv" style="display:none">
 					<p id="errormessage"></p>
@@ -30,12 +54,7 @@ if(ISSET($_POST['log_id'])){
     			        	//display column headers
                             echo "<thead>";
                                 echo "<th style='text-align:center' width=\"4%\">Update</th>";
-    				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Error Type"?>
-    				        		<select>
-										<option value="none">No Selection</option>
-										<option value="missing">Missing Input</option>
-										<option value="stopped">Stopped Input</option>
-									</select> <?php "</th>";
+    				        	echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Error Type</th>";
                                 echo "<th style='text-align:center' width=\"" . 4*(100/(mysqli_num_fields($result)+3)) . "%\">Description</th>";
                                 echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Time Found</th>";
                                 echo "<th style='text-align:center' width=\"" . 100/(mysqli_num_fields($result)+3) . "%\">Status</th>";
@@ -72,30 +91,6 @@ if(ISSET($_POST['log_id'])){
 					</form>
                 </div>
             </div>
-			<div class="panel-body">
-				<table id="filters" class="table table-bordered">
-					<th>Error Type:</th>
-					<th><select style='width:100%;'>
-						<option value="none">No Selection</option>
-						<option value="missing">Missing Input</option>
-						<option value="stopped">Stopped Input</option>
-					</select></th>
-					
-					<th>After Date:</th>
-					<th>PLACEHOLDER</th>
-					
-					<th>Before Date:</th>
-					<th>PLACEHOLDER</th>
-					
-					<th>Status:</th>
-					<th><select style='width:100%;'>
-						<option value="none">No Selection</option>
-						<option value="action">Action Required</option>
-						<option value="ignore">Ignored</option>
-						<option value="correct">Corrected</option>
-					</select></th>
-				</table>
-			</div>
         </div>
         <!-- /.col-lg-12 -->
     </div>
