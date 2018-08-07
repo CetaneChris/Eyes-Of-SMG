@@ -14,12 +14,8 @@ if(ISSET($_POST['log_id'])){
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="alert alert-danger" role = "alert" id="errordiv" style="display:none">
-					<p id="errormessage"></p>
-				</div>
-                <div class="panel-heading">
-                    <table id="filters" class="table table-bordered">
+        	<div class="panel-body">
+				<table id="filters" class="table table-bordered">
 					<th>Error Type:</th>
 					<th><select style='width:100%;'>
 						<option value="none">No Selection</option>
@@ -41,6 +37,13 @@ if(ISSET($_POST['log_id'])){
 						<option value="correct">Corrected</option>
 					</select></th>
 				</table>
+			</div>
+            <div class="panel panel-default">
+                <div class="alert alert-danger" role = "alert" id="errordiv" style="display:none">
+					<p id="errormessage"></p>
+				</div>
+                <div class="panel-heading">
+                    <i class="fas fa-exclamation-circle fa-fw"></i> Errors
                 </div>
                 <div class="panel-body">
                 	<form name="errors" method="POST" action="/pages/error_reporting.php" onsubmit="return validateForm();">
