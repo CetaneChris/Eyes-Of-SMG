@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var popupS = require('popups');
 
 var con = mysql.createConnection({
     
@@ -23,12 +24,12 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
     for(var i = 0; i < result.length; i++) {
         //console.log(`Total = ${result[i].TOTAL}, Attention =  ${result[i].HAS_ATTENTION}`);
         if(result[i].TOTAL < result[i].HAS_ATTENTION) {
-            console.log("error detected!");
+            //console.log("error detected!");
             var track_id = result[i].TRACK_ID;
             var hma_fix = "UPDATE track_eyes SET total = ? WHERE total = ?";
             con.query(hma_fix, [result[i].TOTAL, result[i].HAS_ATTENTION], function(err,result) {
                 if (err) throw err;
-                console.log("updated track_eyes table");
+                //console.log("updated track_eyes table");
             });
             var hma = "INSERT INTO error_log (error_type, status, description) " + 
                     "VALUES ('More attention than total', 'Corrected', 'Track_eyes record " + 
@@ -36,7 +37,7 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
                     result[i].HAS_ATTENTION + "')"
             con.query(hma, function(err,result) {
                 if (err) throw err;
-                console.log("HMA inserted record");
+                //console.log("HMA inserted record");
             });
         }
         
@@ -45,9 +46,9 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
             //console.log(result[i].TRACK_ID + ": no err detected");
     }
     for(var i = 0; i < result.length-1; i++) {
-        if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > 300000) {
-            console.log((i+1) + ": timestamp err detected");
-            if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > (300000*12)){
+        if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > 5000) {
+            //console.log((i+1) + ": timestamp err detected");
+            if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > (60000)){
                 //no camera input for more than a minute
                 var stoppedin = "INSERT INTO error_log(error_type, status, description) " + 
                             "VALUES ('Stopped Input', 'Action Required', " + 
@@ -55,7 +56,7 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
                             result[i].TRACK_ID + " and " + result[i+1].TRACK_ID + ", data input may have stopped')";
                 con.query(stoppedin, function(err,result) {
                     if (err) throw err;
-                    console.log("TSS inserted record");
+                    //console.log("TSS inserted record");
                 });
             }
             else{
@@ -66,13 +67,13 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
                             result[i].TRACK_ID + " and " + result[i+1].TRACK_ID + ", ignored due to small impact')";
                 con.query(missingin, function(err,result) {
                     if (err) throw err;
-                    console.log("TSM inserted record");
+                    //console.log("TSM inserted record");
                 });
             }
         }
         else
             continue;
-            //console.log("not detected");
+            //console.log(result[i].TIMESTAMP);
     
     }
   });
