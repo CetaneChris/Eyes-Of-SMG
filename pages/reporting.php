@@ -12,7 +12,7 @@
         <div class="col-lg-10">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <iframe src="http://192.241.135.75:3000/d/Y68s4yMmk/primary-display?orgId=1&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 100%;" height="900"></iframe>
+                    <iframe src="http://192.241.135.75:3000/d/Y68s4yMmk/primary-display?orgId=1&var-theater_number=<?php echo $_POST['theater_number']?>" style="width: 100%;" height="1050"></iframe>
                 </div>
             </div>
         </div>
