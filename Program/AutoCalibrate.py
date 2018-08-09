@@ -61,7 +61,7 @@ def main():
 			except AssertionError:
 				print("Assertion Error, empty frame")
 				cap.release()
-				cap = cv2.VideoCapture("rtsp://admin:123456@192.168.0.29/stream0")
+				cap = cv2.VideoCapture("rtsp://admin:123456@192.168.1.23/stream0")
 				
 			except KeyboardInterrupt:
 				print("Keyboard Interrupt, ending program...")

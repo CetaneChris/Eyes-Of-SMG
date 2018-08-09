@@ -32,6 +32,7 @@ while(1):
 			imgNotFound = False
 
 	imgNotFound = True
+	frame = cv2.normalize(frame, None, 0, 255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
 	#fgmask = fgbg.apply(frame)
 	
 	#kernel = np.ones((4,4),np.uint8)
