@@ -41,7 +41,7 @@
 			                  	echo "<td align = 'center'>" . $row['ad_comp'] . "</td>";
 
 			                  	//Timestamp
-			                  	echo "<td align = 'center'>" . $row['ad_timestamp'] . "</td>";
+			                  	echo "<td align = 'center'>" . $row['ad_timestamp'] . " AM</td>";
 
                                 echo "</tr>";
 			            	}
