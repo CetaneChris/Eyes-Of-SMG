@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var twilio = require('twilio');
 
 var con = mysql.createConnection({
     
@@ -9,12 +10,14 @@ var con = mysql.createConnection({
     database: 'seniordesign'
 });
 
+var client = new twilio('AC7c0522c5168fe9c010a2717d01bd3f90', 'c6a50f12c3f92145a3e30d55707e0448');
+
 
 // con.connect(function(err) {
 //     if (err) throw err;
 //     console.log("Connected!");
 // });
-
+// while(true) {
 con.query("SELECT * FROM track_eyes", function (err, result, fields) {
     if (err) throw err;
     
@@ -58,6 +61,11 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
                 con.query(stoppedin, function(err,result) {
                     if (err) throw err;
                     console.log("TSS inserted record");
+                    client.messages.create({
+                        to: '+15128090993',
+                        from: '+17372002969',
+                        body: 'Error Found: Action Required.'
+                      });
                 });
             }
             else{
@@ -78,3 +86,7 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
     
     }
   });
+// }
+setTimeout((function() {
+    return process.exit(22);
+}), 5000);
