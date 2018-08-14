@@ -50,7 +50,7 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
             //console.log(result[i].TRACK_ID + ": no err detected");
     }
     for(var i = 0; i < result.length-1; i++) {
-        if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > 1000) {
+        if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > 5000) {
             //console.log((i+1) + ": timestamp err detected");
             if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > (60000)){
                 //no camera input for more than a minute
@@ -62,7 +62,7 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
                     if (err) throw err;
                     console.log("TSS inserted record");
                     client.messages.create({
-                        to: '+15128090993',
+                        to: 'replace this with receiver phone number',
                         from: '+17372002969',
                         body: 'Error Found: Action Required.'
                       });
