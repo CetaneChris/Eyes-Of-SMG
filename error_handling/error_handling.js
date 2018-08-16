@@ -12,21 +12,10 @@ var con = mysql.createConnection({
 
 var client = new twilio('AC7c0522c5168fe9c010a2717d01bd3f90', 'c6a50f12c3f92145a3e30d55707e0448');
 
-
-// con.connect(function(err) {
-//     if (err) throw err;
-//     console.log("Connected!");
-// });
-// while(true) {
 con.query("SELECT * FROM track_eyes", function (err, result, fields) {
     if (err) throw err;
     
-    
-    //console.log(result);
-    //console.log(`Total = ${result[0].TOTAL}, Attention =  ${result[0].HAS_ATTENTION}`);
-    //console.log(result[3].TIMESTAMP - result[2].TIMESTAMP);
     for(var i = 0; i < result.length; i++) {
-        //console.log(`Total = ${result[i].TOTAL}, Attention =  ${result[i].HAS_ATTENTION}`);
         if(result[i].TOTAL < result[i].HAS_ATTENTION) {
             console.log("error detected!");
             var track_id = result[i].TRACK_ID;
@@ -47,13 +36,10 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
         
         else
             continue;
-            //console.log(result[i].TRACK_ID + ": no err detected");
     }
     for(var i = 0; i < result.length-1; i++) {
         if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > 5000) {
-            //console.log((i+1) + ": timestamp err detected");
             if((result[i+1].TIMESTAMP - result[i].TIMESTAMP) > (60000)){
-                //no camera input for more than a minute
                 var stoppedin = "INSERT INTO error_log(error_type, status, description) " + 
                             "VALUES ('Stopped Input', 'Action Required', " + 
                             "'There is at least a 1-minute gap between track record " + 
@@ -69,7 +55,6 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
                 });
             }
             else{
-                // no camera input for less than a minute, missing records
                 var missingin = "INSERT INTO error_log(error_type, status, description) " + 
                             "VALUES ('Missing Input', 'Ignored', " + 
                             "'Missing records detected between track record " + 
@@ -81,12 +66,10 @@ con.query("SELECT * FROM track_eyes", function (err, result, fields) {
             }
         }
         else
-            continue;
-            //console.log(result[i].TIMESTAMP);
-    
+            continue;    
     }
   });
-// }
+
 setTimeout((function() {
     return process.exit(22);
 }), 5000);
