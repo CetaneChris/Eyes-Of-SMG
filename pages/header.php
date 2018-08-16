@@ -19,7 +19,6 @@
 <?php
 date_default_timezone_set('America/Chicago');
 include_once ($_SERVER['DOCUMENT_ROOT'].'/connections/db_connect8.php');
-include_once ($_SERVER['DOCUMENT_ROOT'].'/class/all_classes.php');?>
 </head>
 <body>
     <div id="wrapper">
